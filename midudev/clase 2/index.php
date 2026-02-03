@@ -1,40 +1,18 @@
 <?php
-
-declare(strict_types=1); //habilita tipado estricto, se activa a nivel de archivo
-
-const API_URL = "https://whenisthenextmcufilm.com/api";
-
-function get_data(string $url): array //tipado debil
-{
-  //con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
-  $result = file_get_contents($url); //similar al fetch
-  $data = json_decode($result, true); //Convierte el contenido en un objeto JSON
-  return $data;
-}
-
-$data = get_data(API_URL);
-
+require_once "functions.php";
 /* 
-  scope de las variables: 
-  no exiseb variables globales. 
-  Dentro de las funciones viven en su ambito.
-  Dentro del script viven en su ambito.
-  podemos acceder a las variables globales en una funcion, pasandola como parametro o definiendola como global.
-  EJ:
-  
-  $nombre = "Juan";
-  function hola(){
-    global $nombre;
-    echo $nombre;
-  }
-  hola();
-  o
+require vs require_once: 
+require_once solo carga el archivo una vez, 
+require carga el archivo una vez y luego lo vuelve a cargar cada vez que se ejecuta la función.
 
-  function hola2($nombre){
-    echo $nombre;
-  }
-  hola2("Juan");
-*/
+require vs include: 
+include carga el archivo , pero no devuelve fatak error si el archivo no existe.
+
+include vs include_once:
+similar a require y require_once, pero no devuelve error si el archivo no existe.
+ */
+$data = get_data(API_URL);
+$until_message = get_until_message($data["days_until"]);
 ?>
 
 <head>
@@ -78,7 +56,7 @@ $data = get_data(API_URL);
   </section>
 
   <hgroup>
-    <h3><?= $data["title"]; ?> se estrena en <?= $data["days_until"]; ?> días</h3>
+    <h3><?= $data["title"]; ?> - <?= $until_message; ?></h3>
     <p>Fecha de estreno: <?= $data["release_date"]; ?></p>
     <p>La siguiente es: <?= $data["following_production"]["title"]; ?></p>
   </hgroup>
