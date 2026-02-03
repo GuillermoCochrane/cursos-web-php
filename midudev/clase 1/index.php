@@ -21,6 +21,16 @@
   //constates 
   define('LOGO_URL', 'https://cdn.freebiesupply.com/logos/large/2x/php-1-logo-svg-vector.svg');
   const FRUTA = "banana 🍌"; // no se pueden usar en ejecucion ni en bucles
+
+  //booleanos
+  $isGreaterThan = $age > 18;
+  $isLessThan = $age < 18;
+  $isEqual = $age === 18;
+  $isNotEqual = $age !== 18;
+  $isGreaterThanOrEqual = $age >= 18;
+  $isLessThanOrEqual = $age <= 18;
+  $negateValue = !$isDev;
+  $multipleConditions = $isDev && $isGreaterThan
 ?>
 
 <style>
