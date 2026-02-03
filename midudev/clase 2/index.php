@@ -1,16 +1,40 @@
 <?php
 
+declare(strict_types=1); //habilita tipado estricto, se activa a nivel de archivo
+
 const API_URL = "https://whenisthenextmcufilm.com/api";
 
-//con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
-
-function get_data($url){
+function get_data(string $url): array //tipado debil
+{
+  //con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
   $result = file_get_contents($url); //similar al fetch
   $data = json_decode($result, true); //Convierte el contenido en un objeto JSON
   return $data;
 }
 
 $data = get_data(API_URL);
+
+/* 
+  scope de las variables: 
+  no exiseb variables globales. 
+  Dentro de las funciones viven en su ambito.
+  Dentro del script viven en su ambito.
+  podemos acceder a las variables globales en una funcion, pasandola como parametro o definiendola como global.
+  EJ:
+  
+  $nombre = "Juan";
+  function hola(){
+    global $nombre;
+    echo $nombre;
+  }
+  hola();
+  o
+
+  function hola2($nombre){
+    echo $nombre;
+  }
+  hola2("Juan");
+*/
 ?>
 
 <head>
