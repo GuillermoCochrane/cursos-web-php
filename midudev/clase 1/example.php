@@ -59,7 +59,18 @@
   //arrays 
   $bestLanguages = ["PHP", "JavaScript", "Python", 33];
   $bestLanguages[3] = "Java"; //modificar un elemento
-  $bestLanguages[] = "TypeScript"; //agregar un elemento
+  $bestLanguages[] = "TypeScript"; //agregar un elemento al final
+
+  //diccionarios (similar a objetos)
+  $person = [
+    "name" => "Miguel",
+    "age" => 78,
+    "isDev" => true,
+    "languages" => ["PHP", "JavaScript", "Python"],
+  ];
+
+  $person["name"] = "pheralb"; //modificar un elemento
+  $person["languages"][] = "Java"; //agregar un elemento al final
 ?>
 
 <style>
