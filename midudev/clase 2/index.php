@@ -1,22 +1,16 @@
 <?php
 
 const API_URL = "https://whenisthenextmcufilm.com/api";
-# Inicializar una nueva sesión de cURL; ch = cURL handle
-$ch = curl_init(API_URL);
-// Indicar que queremos recibir el resultado de la petición y no mostrarla en pantalla
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-/* Ejecutar la petición
-  y guardamos el resultado
-*/
-$result = curl_exec($ch);
 
-// una alternativa sería utilizar file_get_contents
-// $result = file_get_contents(API_URL); // si solo quieres hacer un GET de una API
+//con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
 
-$data = json_decode($result, true);
+function get_data($url){
+  $result = file_get_contents($url); //similar al fetch
+  $data = json_decode($result, true); //Convierte el contenido en un objeto JSON
+  return $data;
+}
 
-curl_close($ch);
-# despleagar gratis en https://zeabur.com/ (ver xq puede haber cambiado la capa gratis)
+$data = get_data(API_URL);
 ?>
 
 <head>
