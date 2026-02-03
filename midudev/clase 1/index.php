@@ -17,6 +17,10 @@
   $output = "Hola \"$name\", con una edad de $age. 😝"; //concatenar solo con  "" 
   $output .= "<br/>"; //otra forma de concatenar
   // escapamos el caracteres (") con una barra invertida (\)
+  
+  //constates 
+  define('LOGO_URL', 'https://cdn.freebiesupply.com/logos/large/2x/php-1-logo-svg-vector.svg');
+  const FRUTA = "banana 🍌"; // no se pueden usar en ejecucion ni en bucles
 ?>
 
 <style>
@@ -45,3 +49,6 @@
   <!-- se puede hacer en varias lineas, sin perder la continuidad del texto -->
   <?= $output; ?>
 </p>
+
+<img src="<?= LOGO_URL ?>" alt="PHP Logo" width="200" style="display: block; margin: 0 auto;">
+<p> <?= FRUTA ?> </p>
