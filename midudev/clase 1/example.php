@@ -46,6 +46,7 @@
     19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 => "Eres un adulto joven, $name 👨‍💼",
     default => "Eres un adulto, $name 👴",
   };
+  //otra forma de match
   $otherMatchAge = match (true) {
     $age < 2    => "Eres un bebé, $name 👶",
     $age < 10   => "Eres un niño, $name 👦",
@@ -55,6 +56,10 @@
     $age < 60   => "Eres un adulto viejo, $name 👴",
     default     => "Hueles más a madera que a fruta, $name 👴",
   };
+  //arrays 
+  $bestLanguages = ["PHP", "JavaScript", "Python", 33];
+  $bestLanguages[3] = "Java"; //modificar un elemento
+  $bestLanguages[] = "TypeScript"; //agregar un elemento
 ?>
 
 <style>
@@ -114,3 +119,9 @@
 
 <h2><?= $outputAge ?></h2> <!-- imprimir if ternario -->
 <h2><?= $matchAge ?></h2> <!-- imprimir match -->
+
+<ul> <!-- iterar sobre arrays -->
+  <?php foreach ($bestLanguages as $key => $language) : ?>
+    <li><?= $key . " " . $language ?></li>
+  <?php endforeach; ?>
+</ul>
