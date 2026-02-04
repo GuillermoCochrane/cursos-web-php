@@ -1,4 +1,5 @@
 <?php
+require_once "consts.php";
 require_once "functions.php";
 /* 
 require vs require_once: 
@@ -13,8 +14,7 @@ similar a require y require_once, pero no devuelve error si el archivo no existe
  */
 $data = get_data(API_URL);
 $until_message = get_until_message($data["days_until"]);
-
-require_once "sections/head.php";
-require_once "sections/styles.php";
-require_once "sections/main.php"; 
 ?>
+<?php require_once "sections/head.php"; ?>
+<?php require_once "sections/styles.php"; ?>
+<?php require_once "sections/main.php"; ?>

@@ -22,8 +22,6 @@
 */
   declare(strict_types=1); //habilita tipado estricto, se activa a nivel de archivo
 
-  const API_URL = "https://whenisthenextmcufilm.com/api";
-
   function get_data(string $url): array //tipado debil
   {
     //con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
