@@ -20,10 +20,17 @@
   $suma = $numero + $numero2;
   echo "el valor de \$suma es " . $suma . "<br>"; // escapar con \ el caracter $
 
+  //ejemplo de condicional para calcular si un numero es par o impar
   $esPar = $numero % 2;
   if ($esPar == 0) {
     echo "el numero $numero es par <br>";
   } else {
     echo "el numero $numero es impar <br>";
-  }
+  };
+
+  //ejemplo de iteracion con for
+  for ($i = 0; $i < 10; $i++) {
+    echo "el numero $i <br>";
+  };
+
 ?>
