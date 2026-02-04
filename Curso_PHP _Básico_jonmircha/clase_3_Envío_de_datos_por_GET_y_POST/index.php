@@ -26,7 +26,7 @@
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
     <br><br>
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar" name="enviar">
     <br>
   </form>
 
@@ -49,7 +49,7 @@
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
     <br><br>
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar" name="enviar">
     <br>
   </form>
 </body>

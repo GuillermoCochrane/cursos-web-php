@@ -8,4 +8,14 @@
     echo "Formualrio procesado por GET <br>";
     echo "Hola $nombre $apellido <br>";
     echo "Su contraseña es $password <br>";
+  } elseif (isset($_POST['enviar'])) {
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $password = $_POST['password'];
+
+    echo "Formualrio procesado por POST <br>";
+    echo "Hola $nombre $apellido <br>";
+    echo "Su contraseña es $password <br>";
+  } else {
+    echo "Formulario sin datos <br>";
   };
