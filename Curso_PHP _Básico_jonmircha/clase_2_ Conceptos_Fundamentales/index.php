@@ -19,4 +19,11 @@
   $numero2 = 20;
   $suma = $numero + $numero2;
   echo "el valor de \$suma es " . $suma . "<br>"; // escapar con \ el caracter $
+
+  $esPar = $numero % 2;
+  if ($esPar == 0) {
+    echo "el numero $numero es par <br>";
+  } else {
+    echo "el numero $numero es impar <br>";
+  }
 ?>
