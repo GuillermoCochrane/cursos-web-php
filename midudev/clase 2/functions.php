@@ -22,8 +22,7 @@
 */
   declare(strict_types=1); //habilita tipado estricto, se activa a nivel de archivo
 
-  function get_data(string $url): array //tipado debil
-  {
+  function get_data(string $url): array { //tipado debil
     //con curl podemos usar todos los verbos de HTTP, con file_get_contents solo podemos usar GET
     $result = file_get_contents($url); //similar al fetch
     $data = json_decode($result, true); //Convierte el contenido en un objeto JSON
@@ -31,8 +30,7 @@
   }
 
 
-  function get_until_message(int $days): string
-  {
+  function get_until_message(int $days): string {
     return match (true) {
       $days === 0    => "¡Hoy se estrena! 🥳",
       $days === 1    => "Mañana se estrena 🚀",
@@ -40,5 +38,10 @@
       $days < 30     => "Este mes se estrena... 🗓️",
       default        => "$days días hasta el estreno 🗓️",
       };
+  }
+
+  function render_template(string $template, array $data = []){
+    extract($data); // extrae los de un array asociativo, donde las claves son los nombres de las variables y el valor es el valor de la misma
+    require "templates/$template.php";
   }
 ?>
