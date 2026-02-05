@@ -31,6 +31,12 @@
     <input type="hidden" name="hidden-get" value="get" id="hidden.get">
     <br><br>
     <input type="button" value="Enviar por GET" name="enviar" id="enviar-get">
+    <?php
+      # error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING); // desactiva todos los mensajes de error
+      if (isset($_GET['error']) && $_GET['error'] == 'true') {
+        echo "<span style='color: red;'>Error: Credenciales inválidas</span>";
+      }
+    ?>
   </form>
 
   <br>
