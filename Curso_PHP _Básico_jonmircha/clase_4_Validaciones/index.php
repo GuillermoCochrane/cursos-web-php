@@ -57,6 +57,10 @@
         alert('El campo password es obligatorio');
         $password.focus();
         verificar = false;
+      } else if (!$sexo_masculino.checked && !$sexo_femenino.checked) { //verificamos si el campo sexo esta vacio
+        alert('El campo sexo es obligatorio');
+        $sexo_masculino.focus();
+        verificar = false;
       }
     }
 
