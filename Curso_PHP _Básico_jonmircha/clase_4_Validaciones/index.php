@@ -45,12 +45,17 @@
       let verificar = true;
       const $nombre = $('#nombre');
       const $password = $('#password');
-      const $sexo = $('#sexo_masculino');
+      const $sexo_masculino = $('#sexo_masculino');
+      const $sexo_femenino = $('#sexo_femenino');
       const $hidden = $('#hidden.get');
 
       if (!$nombre.value) { //verificamos si el campo nombre esta vacio
         alert('El campo nombre es obligatorio');
         $nombre.focus();
+        verificar = false;
+      } else if (!$password.value) { //verificamos si el campo password esta vacio
+        alert('El campo password es obligatorio');
+        $password.focus();
         verificar = false;
       }
     }
