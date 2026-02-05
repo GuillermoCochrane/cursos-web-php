@@ -9,7 +9,7 @@
 <body>
   <hgroup>
     <h1 style="text-align: center;">Validaciones de datos</h1>
-    <h2>Formualrio con GET</h2>
+    <h2 style="text-align: center;">Formulario con GET</h2>
   </hgroup>
   <form 
     action="validaciones.php" 
@@ -31,6 +31,8 @@
     <br><br>
     <input type="button" value="Enviar por GET" name="enviar" id="enviar-get">
   </form>
+
+  <br>
 
   <hgroup>
     <h2 style="text-align: center;">Formulario con POST</h2>
@@ -66,6 +68,7 @@
     };
 
     const $enviarGet = $('#enviar-get');
+    const $enviarPost = $('#enviar-post');
 
     function validarGet() {
       let verificar = true;
@@ -95,8 +98,37 @@
       }
     }
 
+    function validarPost() {
+      let verificar_post = true;
+      const $post_form = $('#post_form');
+      const $nombre = $('#nombre_post');
+      const $password = $('#password_post');
+      const $sexo_masculino = $('#sexo_masculino_post');
+      const $sexo_femenino = $('#sexo_femenino_post');
+      const $hidden = $('#hidden.post');
+
+      if (!$nombre.value) { //verificamos si el campo nombre esta vacio
+        alert('El campo nombre es obligatorio');
+        $nombre.focus();
+        verificar_post = false;
+      } else if (!$password.value) { //verificamos si el campo password esta vacio  
+        alert('El campo password es obligatorio');
+        $password.focus();
+        verificar_post = false;
+      } else if (!$sexo_masculino.checked && !$sexo_femenino.checked) { //verificamos si el campo sexo esta vacio
+        alert('El campo sexo es obligatorio');
+        $sexo_masculino.focus();
+        verificar_post = false;
+      } 
+
+      if (verificar_post) {
+        $post_form.submit();
+      }
+    }
+
     // Event listener
     $enviarGet.onclick = validarGet;
+    $enviarPost.onclick = validarPost;
 
   })
 </script>
