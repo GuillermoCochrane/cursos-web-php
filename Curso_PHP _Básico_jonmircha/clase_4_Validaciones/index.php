@@ -9,6 +9,7 @@
 <body>
   <hgroup>
     <h1 style="text-align: center;">Validaciones de datos</h1>
+    <h2>Formualrio con GET</h2>
   </hgroup>
   <form 
     action="validaciones.php" 
@@ -31,6 +32,30 @@
     <input type="button" value="Enviar por GET" name="enviar" id="enviar-get">
   </form>
 
+  <hgroup>
+    <h2 style="text-align: center;">Formulario con POST</h2>
+  </hgroup>
+
+  <form 
+    action="validaciones.php" 
+    method="post" 
+    style="width: 300px; margin:auto" 
+    enctype="application/x-www-form-urlencoded"
+    id="post_form"
+  >
+    <label for="nombre_post">Nombre:</label>
+    <input type="text" id="nombre_post" name="nombre" placeholder="Ingrese su nombre">
+    <label for="password_post">Contraseña:</label>
+    <input type="password" id="password_post" name="password" placeholder="Ingrese su contraseña">
+    <label>Sexo:</label>
+    <input type="radio" name="sexo" id="sexo_masculino_post" value="masculino">
+    <label for="sexo_masculino_post">Masculino</label>
+    <input type="radio" name="sexo" id="sexo_femenino_post" value="femenino">
+    <label for="sexo_femenino_post">Femenino</label>
+    <input type="hidden" name="hidden-post" value="post" id="hidden.post">
+    <br><br>
+    <input type="button" value="Enviar por POST" name="enviar" id="enviar-post">
+  </form>
   <br>
 
 </body>
@@ -69,7 +94,6 @@
         $get_form.submit();
       }
     }
-    
 
     // Event listener
     $enviarGet.onclick = validarGet;
