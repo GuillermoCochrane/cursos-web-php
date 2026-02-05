@@ -9,6 +9,7 @@
 <body>
   <hgroup>
     <h1 style="text-align: center;">Validaciones de datos</h1>
+    <br>
     <h2 style="text-align: center;">Formulario con GET</h2>
   </hgroup>
   <form 
