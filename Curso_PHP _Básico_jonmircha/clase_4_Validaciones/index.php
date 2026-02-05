@@ -64,6 +64,11 @@
     <input type="hidden" name="hidden-post" value="post" id="hidden.post">
     <br><br>
     <input type="button" value="Enviar por POST" name="enviar" id="enviar-post">
+    <?php
+      if (isset($_GET['error_post']) && $_GET['error_post'] == 'true') {
+        echo "<span style='color: red;'>Error: Credenciales inválidas</span>";
+      }
+    ?>
   </form>
   <br>
 
