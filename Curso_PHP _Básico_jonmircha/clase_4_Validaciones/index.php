@@ -25,11 +25,39 @@
     <label for="sexo_masculino">Masculino</label>
     <input type="radio" name="sexo" id="sexo_femenino" value="femenino">
     <label for="sexo_femenino">Femenino</label>
+    <input type="hidden" name="hidden-get" value="get" id="hidden.get">
     <br><br>
-    <input type="button" value="Enviar por GET" name="enviar" id="enviar">
+    <input type="button" value="Enviar por GET" name="enviar" id="enviar-get">
   </form>
 
   <br>
 
 </body>
+<script>
+  windows.addEventlistener("load", function() {
+    const $ = function(selector) {
+      return document.querySelector(selector);
+    };
+
+    const $enviarGet = $('#enviar-get');
+
+    function validarGet() {
+      let verificar = true;
+      const $nombre = $('#nombre');
+      const $password = $('#password');
+      const $sexo = $('#sexo_masculino');
+      const $hidden = $('#hidden.get');
+
+      if (!$nombre.value) { //verificamos si el campo nombre esta vacio
+        alert('El campo nombre es obligatorio');
+        $nombre.focus();
+        verificar = false;
+      }
+    }
+
+    // Event listener
+    $enviarGet.onclick = validarGet;
+
+  })
+</script>
 </html>
