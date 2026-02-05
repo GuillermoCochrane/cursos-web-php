@@ -14,7 +14,8 @@
     action="validaciones.php" 
     method="get" 
     style="width: 300px; margin:auto" 
-    enctype="application/x-www-form-urlencoded" 
+    enctype="application/x-www-form-urlencoded"
+    id="get_form"
   >
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
@@ -34,7 +35,7 @@
 
 </body>
 <script>
-  windows.addEventlistener("load", function() {
+  window.addEventListener("load", function() {
     const $ = function(selector) {
       return document.querySelector(selector);
     };
@@ -43,6 +44,7 @@
 
     function validarGet() {
       let verificar = true;
+      const $get_form = $('#get_form');
       const $nombre = $('#nombre');
       const $password = $('#password');
       const $sexo_masculino = $('#sexo_masculino');
@@ -62,7 +64,12 @@
         $sexo_masculino.focus();
         verificar = false;
       }
+
+      if (verificar) {
+        $get_form.submit();
+      }
     }
+    
 
     // Event listener
     $enviarGet.onclick = validarGet;
