@@ -6,8 +6,8 @@
     <h2 style="text-align: center;">Formulario de login</h2>
   </hgroup>
   <form 
-    action="procesa_formularios.php" 
-    method="get" 
+    action="control.php" 
+    method="post" 
     style="width: 300px; margin:auto" 
     enctype="application/x-www-form-urlencoded" 
   >
