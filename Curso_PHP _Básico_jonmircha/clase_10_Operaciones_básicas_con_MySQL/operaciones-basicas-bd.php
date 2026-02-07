@@ -33,4 +33,8 @@ $consulta = "UPDATE contactos SET email = 'cursos@email.com', nombre = 'Bextlan'
              WHERE email = 'jon@email.com'";
 $ejecutar_consulta = mysql_query($consulta, $conexion);
 
+//D. Consulta con Filtros (SELECT + WHERE) [01:15:28]
+$consulta = "SELECT * FROM contactos WHERE nombre = 'Bextlan'";
+$ejecutar_consulta = mysql_query($consulta, $conexion);
+
 ?>
