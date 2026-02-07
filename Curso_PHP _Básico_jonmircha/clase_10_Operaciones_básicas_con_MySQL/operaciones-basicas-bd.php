@@ -18,4 +18,8 @@
 
   /* 6. Cerrar conexión [00:29:23] */
   mysql_close($conexion);
+/* A. Inserción (INSERT) */
+  $consulta = "INSERT INTO contactos (email, nombre, sexo, nacimiento, telefono, pais, imagen) 
+             VALUES ('jon@email.com', 'Jonathan', 'M', '1984-05-23', '52555555', 'México', 'foto.png')";
+  $ejecutar_consulta = mysql_query($consulta, $conexion);
 ?>
