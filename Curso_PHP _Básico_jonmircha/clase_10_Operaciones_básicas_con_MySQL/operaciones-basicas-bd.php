@@ -27,4 +27,10 @@
 
 $consulta = "DELETE FROM contactos WHERE email = 'jon@email.com'";
 $ejecutar_consulta = mysql_query($consulta, $conexion);
+
+//C. Modificación (UPDATE) [01:08:06]
+$consulta = "UPDATE contactos SET email = 'cursos@email.com', nombre = 'Bextlan' 
+             WHERE email = 'jon@email.com'";
+$ejecutar_consulta = mysql_query($consulta, $conexion);
+
 ?>
