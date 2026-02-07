@@ -4,6 +4,7 @@
 
   /* 2. Seleccionar la BD [00:12:45] */
   mysql_select_db("mis_contactos") or die("No se pudo seleccionar la BD");
+  echo "<h1>Operaciones sobre la BD mis_contactos</h1>";
 
   /* 3. Crear consulta SQL [00:16:22] */
   $consulta = "SELECT * FROM pais";
