@@ -34,6 +34,7 @@ echo "Datos eliminados <br />";
 $consulta = "UPDATE contactos SET email = 'cursos@email.com', nombre = 'Bextlan' 
              WHERE email = 'jon@email.com'";
 $ejecutar_consulta = mysql_query($consulta, $conexion);
+echo "Datos modificados <br />";
 
 //D. Consulta con Filtros (SELECT + WHERE) [01:15:28]
 $consulta = "SELECT * FROM contactos WHERE nombre = 'Bextlan'";
