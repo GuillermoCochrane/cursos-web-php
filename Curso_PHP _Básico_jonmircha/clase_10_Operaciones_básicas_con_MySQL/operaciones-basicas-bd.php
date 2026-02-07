@@ -22,4 +22,9 @@
   $consulta = "INSERT INTO contactos (email, nombre, sexo, nacimiento, telefono, pais, imagen) 
              VALUES ('jon@email.com', 'Jonathan', 'M', '1984-05-23', '52555555', 'México', 'foto.png')";
   $ejecutar_consulta = mysql_query($consulta, $conexion);
+
+//B. Eliminación (DELETE) [59:10]
+
+$consulta = "DELETE FROM contactos WHERE email = 'jon@email.com'";
+$ejecutar_consulta = mysql_query($consulta, $conexion);
 ?>
