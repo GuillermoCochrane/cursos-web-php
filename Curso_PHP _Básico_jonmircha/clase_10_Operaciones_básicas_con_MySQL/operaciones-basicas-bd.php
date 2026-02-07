@@ -40,4 +40,10 @@ echo "Datos modificados <br />";
 $consulta = "SELECT * FROM contactos WHERE nombre = 'Bextlan'";
 $ejecutar_consulta = mysql_query($consulta, $conexion);
 
+echo "<h3>Listado de Contactos:</h3>";
+while($registro = mysql_fetch_array($ejecutar_consulta)) {
+    // Imprime el ID y el Nombre de la tabla contactos
+    echo $registro["id_contacto"] . " - " . $registro["nombre"] . "<br />";
+}
+mysql_close($conexion);
 ?>
