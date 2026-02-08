@@ -1,0 +1,18 @@
+# Activa el motor de reescritura de URLs de Apache
+RewriteEngine On
+
+# Configura opciones del directorio:
+# - All: Aplica a todas las opciones disponibles
+# - -Indexes: DESACTIVA el listado automático de archivos (seguridad)
+#             Si alguien accede a una carpeta sin index.html/php, verá error 403
+Options All -Indexes
+
+# Regla de reescritura principal:
+# Sintaxis: RewriteRule PATRON DESTINO
+RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+# expresion regular (regex) a utilizar: [a-zA-Z0-9/ñÑ-]+ (el mas quiere decir qie toma uno o mas)
+# Caracteres permitidos: minúsculas (a-z),mayúsculas (A-Z), dígitos (0-9), guión (-), barra (/), caracteres especiales del español (ñÑ)
+# index.php?views=$1       -> $1 es el texto capturado en la regex, Todo se redirige a index.php con parámetro GET 'views' 
+# EJEMPLOS:
+# URL solicitada: /dashboard       -> index.php?views=dashboard
+# URL solicitada: /user/profile    -> index.php?views=user/profile
