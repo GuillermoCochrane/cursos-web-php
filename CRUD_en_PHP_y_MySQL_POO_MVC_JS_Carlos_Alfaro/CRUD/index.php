@@ -8,7 +8,7 @@
 
 #    $url_query_params = $_GET['views'] ; //es views, xq asi lo definimos al query params en .htaccess
 
-    if(isset($url_query_params)){
+    if(isset($url_query_params) && $url_query_params!="crud/"){
         $url=explode("/", $url_query_params); // explode es similar a slice en javascript
     }else{
         $url=["login"];

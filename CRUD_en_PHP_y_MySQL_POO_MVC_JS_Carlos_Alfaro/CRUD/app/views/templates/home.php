@@ -4,9 +4,6 @@
     <?php require_once "./app/views/components/head.php"; ?>
 </head>
 <body>
-
-</body>
-    <h1>Ejercicio de CRUD en PHP y MySQL con POO, MVC y JS</h1>
     <?php
         use app\controllers\viewsController;
 
@@ -20,4 +17,5 @@
         }
         require_once "./app/views/components/script.php";
     ?>
+</body>
 </html>
