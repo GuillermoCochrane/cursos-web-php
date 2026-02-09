@@ -1,0 +1,1 @@
+console.log("incicializado script.js");
