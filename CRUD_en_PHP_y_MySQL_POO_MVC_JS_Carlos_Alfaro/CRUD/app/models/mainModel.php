@@ -14,21 +14,21 @@
 		private $user=DB_USER;
 		private $pass=DB_PASS;
 
-		/*----------  Funcion conectar a BD  ----------*/
+		/*----------  Método para conectar a BD  ----------*/
 		protected function conectar(){
 			$conexion = new PDO("mysql:host=".$this->server.";dbname=".$this->db,$this->user,$this->pass);
 			$conexion->exec("SET CHARACTER SET utf8");
 			return $conexion;
 		}
 
-		/*----------  Funcion ejecutar consultas  ----------*/
+		/*----------  Método para ejecutar consultas  ----------*/
 		protected function ejecutarConsulta($consulta){
 			$sql=$this->conectar()->prepare($consulta);
 			$sql->execute();
 			return $sql;
 		}
 
-		/*----------  Funcion Sanitzadora de cadenas para evitar SQL INJECTION  ----------*/
+		/*----------  Método para sanitzador de cadenas para evitar SQL INJECTION  ----------*/
 		public function limpiarCadena($cadena){
 
 			$palabras=["<script>","</script>","<script src","<script type=","SELECT * FROM","SELECT "," SELECT ","DELETE FROM","INSERT INTO","DROP TABLE","DROP DATABASE","TRUNCATE TABLE","SHOW TABLES","SHOW DATABASES","<?php","?>","--","^","<",">","==","=",";","::"]; // reglas de sanitización
@@ -45,6 +45,15 @@
 			$cadena=stripslashes($cadena);
 
 			return $cadena;
+		}
+
+		/*---------- Método para validar datos mediante expresiones regulares ----------*/
+		protected function verificarDatos($filtro,$cadena){
+			if(preg_match("/^".$filtro."$/", $cadena)){
+				return false;
+            }else{
+                return true;
+            }
 		}
 	}
 ?>
