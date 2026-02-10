@@ -58,7 +58,7 @@
 
 		/*----------  Método para ejecutar una consulta INSERT preparada  ----------*/
 		protected function guardarDatos($tabla,$datos){
-
+			#estructuro la query
 			$query="INSERT INTO $tabla (";
 
 			$C=0;
@@ -78,6 +78,8 @@
 			}
 
 			$query.=")";
+
+			#hago la consulta
 			$sql=$this->conectar()->prepare($query);
 
 			foreach ($datos as $clave){
@@ -88,5 +90,25 @@
 
 			return $sql;
 		}
-	}
+
+		/*---------- Funcion seleccionar datos ----------*/
+		public function seleccionarDatos($tipo,$tabla,$campo,$id){
+			// Sanitizamos los datos
+			$tipo=$this->limpiarCadena($tipo);
+			$tabla=$this->limpiarCadena($tabla);
+			$campo=$this->limpiarCadena($campo);
+			$id=$this->limpiarCadena($id);
+
+			// Ejecutamos la consulta
+			if($tipo=="Unico"){ // consulta que devuelve un solo registro
+					$sql=$this->conectar()->prepare("SELECT * FROM $tabla WHERE $campo=:ID");
+					$sql->bindParam(":ID",$id);
+			}elseif($tipo=="Normal"){ // consulta que devuelve todos los campos de una tabla
+					$sql=$this->conectar()->prepare("SELECT $campo FROM $tabla");
+			}
+			$sql->execute();
+
+			return $sql;
+			}
+		}
 ?>
