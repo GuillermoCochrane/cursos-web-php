@@ -91,7 +91,7 @@
 			return $sql;
 		}
 
-		/*---------- Funcion seleccionar datos ----------*/
+		/*---------- Método seleccionar datos ----------*/
 		public function seleccionarDatos($tipo,$tabla,$campo,$id){
 			// Sanitizamos los datos
 			$tipo=$this->limpiarCadena($tipo);
@@ -111,7 +111,7 @@
 			return $sql;
 		}
 
-		/*----------  Funcion para ejecutar una consulta UPDATE preparada  ----------*/
+		/*----------  Método para ejecutar una consulta UPDATE preparada  ----------*/
 		protected function actualizarDatos($tabla,$datos,$condicion){
 			
 			$query="UPDATE $tabla SET ";
@@ -138,5 +138,13 @@
 			return $sql;
 		}
 
+		/*---------- Método eliminar registro ----------*/
+		protected function eliminarRegistro($tabla,$campo,$id){
+				$sql=$this->conectar()->prepare("DELETE FROM $tabla WHERE $campo=:id");
+				$sql->bindParam(":id",$id);
+				$sql->execute();
+				
+				return $sql;
+		}
 	}
 ?>
