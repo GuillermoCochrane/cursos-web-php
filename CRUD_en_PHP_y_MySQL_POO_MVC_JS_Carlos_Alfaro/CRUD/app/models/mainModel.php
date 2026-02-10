@@ -27,5 +27,24 @@
 			$sql->execute();
 			return $sql;
 		}
+
+		/*----------  Funcion Sanitzadora de cadenas para evitar SQL INJECTION  ----------*/
+		public function limpiarCadena($cadena){
+
+			$palabras=["<script>","</script>","<script src","<script type=","SELECT * FROM","SELECT "," SELECT ","DELETE FROM","INSERT INTO","DROP TABLE","DROP DATABASE","TRUNCATE TABLE","SHOW TABLES","SHOW DATABASES","<?php","?>","--","^","<",">","==","=",";","::"]; // reglas de sanitización
+
+			$cadena=trim($cadena); //Elimina espacios en blanco del principio y fin del string
+			$cadena=stripslashes($cadena); // Elimina barras invertidas del string (\)
+
+			foreach($palabras as $palabra){
+				$cadena=str_ireplace($palabra, "", $cadena); // Sanitizamos el string
+			}
+
+			//repetimos lo de arriba
+			$cadena=trim($cadena);
+			$cadena=stripslashes($cadena);
+
+			return $cadena;
+		}
 	}
 ?>
