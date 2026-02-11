@@ -21,6 +21,7 @@ body,html{
 
 .hero-body > .title,
 .hero-body > .subtitle{
+    margin: auto;
     text-align: center;
 }
 
