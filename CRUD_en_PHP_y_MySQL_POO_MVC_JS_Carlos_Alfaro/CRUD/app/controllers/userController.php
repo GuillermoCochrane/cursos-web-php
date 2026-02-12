@@ -77,6 +77,36 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+		# Validación del email #
+			if($email!=""){
+				//Verficamos que sea un email válido
+				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+					$check_email=$this->ejecutarConsulta("SELECT usuario_email FROM usuario WHERE usuario_email='$email'");
+
+					// Verificamos si el email ya existe
+					if($check_email->rowCount()>0){
+						$alerta=[
+							"tipo"=>"simple",
+							"titulo"=>"Ocurrió un error inesperado",
+							"texto"=>"El EMAIL que acaba de ingresar ya se encuentra registrado en el sistema, por favor verifique e intente nuevamente",
+							"icono"=>"error"
+						];
+						return json_encode($alerta);
+						exit();
+					}
+				}else{
+					//si el campo email está vacío
+					$alerta=[
+						"tipo"=>"simple",
+						"titulo"=>"Ocurrió un error inesperado",
+						"texto"=>"Ha ingresado un correo electrónico no valido",
+						"icono"=>"error"
+					];
+					return json_encode($alerta);
+					exit();
+				}
+			}
 		}
 	}
 
