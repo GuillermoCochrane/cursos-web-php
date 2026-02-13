@@ -121,6 +121,19 @@
 			}else{
 				$clave=password_hash($clave1,PASSWORD_BCRYPT,["cost"=>10]);
       }
+
+			// Validación de usuario único
+			$check_usuario = $this->ejecutarConsulta("SELECT usuario_usuario FROM usuario WHERE usuario_usuario='$usuario'");
+			if($check_usuario->rowCount()>0){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"El USUARIO ingresado ya se encuentra registrado, por favor elija otro",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
