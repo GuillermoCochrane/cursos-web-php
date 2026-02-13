@@ -78,7 +78,7 @@
 				exit();
 			}
 
-		# Validación del email #
+			//Validación del email 
 			if($email!=""){
 				//Verficamos que sea un email válido
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -107,6 +107,20 @@
 					exit();
 				}
 			}
+
+			// Validación de coincidencia de passwords
+			if($clave1!=$clave2){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"Las contraseñas que acaba de ingresar no coinciden, por favor verifique e intente nuevamente",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}else{
+				$clave=password_hash($clave1,PASSWORD_BCRYPT,["cost"=>10]);
+      }
 		}
 	}
 
