@@ -138,6 +138,27 @@
 			// Directorio de imagenes 
 			$img_dir="../../public/img/fotos/";
 
+			// Comprobar si se selecciono una imagen 
+			if($_FILES['usuario_foto']['name']!="" && $_FILES['usuario_foto']['size']>0){
+
+				# Creando directorio #
+					if(!file_exists($img_dir)){ // Si el directorio no existe, lo creamos
+						if(!mkdir($img_dir,0777)){ // Si no se puede crear el directorio, notificamos
+							$alerta=[
+							"tipo"=>"simple",
+							"titulo"=>"Ocurrió un error inesperado",
+							"texto"=>"Error al crear el directorio",
+							"icono"=>"error"
+						];
+						return json_encode($alerta);
+							exit();
+						} 
+					}
+
+			}else{
+				$foto="";
+			}
+
 		}
 	}
 
