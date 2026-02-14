@@ -11,6 +11,18 @@
 			$usuario=$this->limpiarCadena($_POST['login_usuario']);
 			$clave=$this->limpiarCadena($_POST['login_clave']);
 
+			//Validación campos obligatorios
+			if($usuario=="" || $clave==""){
+					echo "<script>
+									Swal.fire({
+										icon: 'error',
+										title: 'Ocurrió un error inesperado',
+										text: 'No has llenado todos los campos que son obligatorios'
+									});
+								</script>";
+			}else{
+
+			}
 		}
 	}
 
