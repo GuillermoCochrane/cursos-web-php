@@ -180,8 +180,8 @@
 				}
 
 				// Funcionalidad para generar nombre de archivo a guardar
-				$foto=str_ireplace(" ","_",$nombre);
-				$foto=$foto."_".rand(0,100);
+				$foto=str_ireplace(" ","_",$nombre); // Reemplaza espacios por guiones bajos
+				$foto=$foto."_".rand(0,100); // Agrega numero aleatorio
 
 				// Funcionalidad para obtener extensión de archivo a guardar
 				switch(mime_content_type($_FILES['usuario_foto']['tmp_name'])){
@@ -193,7 +193,7 @@
 						break;
 				}
 
-				chmod($img_dir,0777);
+				chmod($img_dir,0777); // Damos permisos de escritura al directorio
 
 				// Funcionalidad para mover archivo a directorio
 				if(!move_uploaded_file($_FILES['usuario_foto']['tmp_name'],$img_dir.$foto)){
@@ -210,6 +210,52 @@
 			}else{
 				$foto="";
 			}
+
+			//Array de arrays asociativos de datos a guardar en la base de datos
+			$usuario_datos_reg=[
+				[
+					"campo_nombre"=>"usuario_nombre",
+					"campo_marcador"=>":Nombre",
+					"campo_valor"=>$nombre
+				],
+				[
+					"campo_nombre"=>"usuario_apellido",
+					"campo_marcador"=>":Apellido",
+					"campo_valor"=>$apellido
+				],
+				[
+					"campo_nombre"=>"usuario_usuario",
+					"campo_marcador"=>":Usuario",
+					"campo_valor"=>$usuario
+				],
+				[
+					"campo_nombre"=>"usuario_email",
+					"campo_marcador"=>":Email",
+					"campo_valor"=>$email
+				],
+				[
+					"campo_nombre"=>"usuario_clave",
+					"campo_marcador"=>":Clave",
+					"campo_valor"=>$clave
+				],
+				[
+					"campo_nombre"=>"usuario_foto",
+					"campo_marcador"=>":Foto",
+					"campo_valor"=>$foto
+				],
+				[
+					"campo_nombre"=>"usuario_creado",
+					"campo_marcador"=>":Creado",
+					"campo_valor"=>date("Y-m-d H:i:s")
+				],
+				[
+					"campo_nombre"=>"usuario_actualizado",
+					"campo_marcador"=>":Actualizado",
+					"campo_valor"=>date("Y-m-d H:i:s")
+				]
+			];
+
+
 		}
 	}
 
