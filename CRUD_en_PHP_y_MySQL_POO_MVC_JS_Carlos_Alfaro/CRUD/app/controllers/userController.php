@@ -255,6 +255,8 @@
 				]
 			];
 
+			// Funcionalidad para guardar datos en la base de datos
+			$registrar_usuario=$this->guardarDatos("usuario",$usuario_datos_reg);
 
 		}
 	}
