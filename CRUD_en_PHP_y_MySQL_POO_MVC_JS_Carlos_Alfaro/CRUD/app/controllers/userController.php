@@ -183,6 +183,10 @@
 				$foto="";
 			}
 
+			// funcionalidad para generar nombre de archivo a guardar
+			$foto=str_ireplace(" ","_",$nombre);
+			$foto=$foto."_".rand(0,100);
+
 		}
 	}
 
