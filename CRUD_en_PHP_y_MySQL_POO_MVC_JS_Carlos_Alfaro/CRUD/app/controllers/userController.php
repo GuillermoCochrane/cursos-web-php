@@ -138,7 +138,7 @@
 			// Directorio de imagenes 
 			$img_dir="../../public/img/fotos/";
 
-			// Comprobar si se selecciono una imagen 
+			// Validación de foto recibida
 			if($_FILES['usuario_foto']['name']!="" && $_FILES['usuario_foto']['size']>0){
 
 				# Creando directorio #
@@ -155,12 +155,24 @@
 						} 
 					}
 
-					# Verificando formato de imagenes #
+					//Validación formato de imagenes
 					if(mime_content_type($_FILES['usuario_foto']['tmp_name'])!="image/jpeg" && mime_content_type($_FILES['usuario_foto']['tmp_name'])!="image/png"){
 						$alerta=[
 							"tipo"=>"simple",
 							"titulo"=>"Ocurrió un error inesperado",
 							"texto"=>"La imagen que ha seleccionado es de un formato no permitido",
+							"icono"=>"error"
+						];
+						return json_encode($alerta);
+						exit();
+					}
+
+					//Validación tamaño de imagen
+					if(($_FILES['usuario_foto']['size']/1024)>5120){
+						$alerta=[
+							"tipo"=>"simple",
+							"titulo"=>"Ocurrió un error inesperado",
+							"texto"=>"La imagen que ha seleccionado supera el peso permitido",
 							"icono"=>"error"
 						];
 						return json_encode($alerta);
