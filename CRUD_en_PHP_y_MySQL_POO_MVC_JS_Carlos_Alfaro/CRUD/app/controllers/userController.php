@@ -183,9 +183,21 @@
 				$foto="";
 			}
 
-			// funcionalidad para generar nombre de archivo a guardar
+			// Funcionalidad para generar nombre de archivo a guardar
 			$foto=str_ireplace(" ","_",$nombre);
 			$foto=$foto."_".rand(0,100);
+
+			// Funcionalidad para obtener extensión de archivo a guardar
+			switch(mime_content_type($_FILES['usuario_foto']['tmp_name'])){
+					case 'image/jpeg':
+							$foto=$foto.".jpg";
+					break;
+					case 'image/png':
+							$foto=$foto.".png";
+					break;
+			}
+
+		chmod($img_dir,0777);
 
 		}
 	}
