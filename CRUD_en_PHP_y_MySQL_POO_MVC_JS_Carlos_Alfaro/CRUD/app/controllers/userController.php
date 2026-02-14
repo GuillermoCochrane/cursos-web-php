@@ -141,7 +141,7 @@
 			// Validación de foto recibida
 			if($_FILES['usuario_foto']['name']!="" && $_FILES['usuario_foto']['size']>0){
 
-			# Creando directorio #
+				// Creando directorio 
 				if(!file_exists($img_dir)){ // Si el directorio no existe, lo creamos
 					if(!mkdir($img_dir,0777)){ // Si no se puede crear el directorio, notificamos
 						$alerta=[
@@ -258,6 +258,27 @@
 			// Funcionalidad para guardar datos en la base de datos
 			$registrar_usuario=$this->guardarDatos("usuario",$usuario_datos_reg);
 
+			// Validación de guardado de datos, y notificación de éxito o error
+			if($registrar_usuario->rowCount()==1){
+				$alerta=[
+					"tipo"=>"limpiar",
+					"titulo"=>"Usuario registrado",
+					"texto"=>"El usuario ".$nombre." ".$apellido." se registro con exito",
+					"icono"=>"success"
+				];
+			}else{	
+				if(is_file($img_dir.$foto)){ // si falla el guardado de los datos en la DB, se elimina la foto
+						chmod($img_dir.$foto,0777);
+						unlink($img_dir.$foto);
+				}
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No se pudo registrar el usuario, por favor intente nuevamente",
+					"icono"=>"error"
+				];
+			}
+			return json_encode($alerta);
 		}
 	}
 
