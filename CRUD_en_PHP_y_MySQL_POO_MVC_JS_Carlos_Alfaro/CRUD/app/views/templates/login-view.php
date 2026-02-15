@@ -6,15 +6,15 @@
 		<div class="field">
 			<label class="label">Usuario</label>
 			<div class="control">
-			    <input class="input" type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required >
+				<input class="input" type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required >
 			</div>
 		</div>
 
 		<div class="field">
-		  	<label class="label">Clave</label>
-		  	<div class="control">
-		    	<input class="input" type="password" name="login_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required >
-		  	</div>
+			<label class="label">Clave</label>
+			<div class="control">
+				<input class="input" type="password" name="login_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required >
+			</div>
 		</div>
 
 		<p class="has-text-centered mb-4 mt-3">
@@ -23,3 +23,9 @@
 
 	</form>
 </div>
+<?php
+	if(isset($_POST['login_usuario']) && isset($_POST['login_clave'])){
+		// Si se ingresa el usuario y la clave, se iniciará la sesión
+		$insLogin->iniciarSesionControlador();
+	}
+?>
