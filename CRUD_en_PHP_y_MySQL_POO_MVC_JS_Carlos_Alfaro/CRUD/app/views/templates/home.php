@@ -6,8 +6,10 @@
 <body>
     <?php
         use app\controllers\viewsController;
+        use app\controllers\loginController;
 
-        $viewsController= new viewsController();
+        $insLogin = new loginController(); // Iniciamos el controlador de login
+        $viewsController= new viewsController(); // Iniciamos el controlador de vistas
         $vista=$viewsController->obtenerVistasControlador($url[0]);
 
         if($vista=="login" || $vista=="404"){
