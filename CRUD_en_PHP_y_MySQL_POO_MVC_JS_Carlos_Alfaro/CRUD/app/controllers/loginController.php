@@ -21,9 +21,18 @@
 									});
 								</script>";
 			}else{
-
+				// Validando integridad de los datos de usuario 
+				if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$usuario)){
+					echo "<script>
+									Swal.fire({
+											icon: 'error',
+											title: 'Ocurrió un error inesperado',
+											text: 'El USUARIO no coincide con el formato solicitado'
+										});
+								</script>";
+				}else{
+				}
 			}
 		}
 	}
-
 ?>
