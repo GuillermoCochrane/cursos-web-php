@@ -43,7 +43,16 @@
 					}else{
 						// Consultamos por el usuario en la base de datos
 						$check_usuario=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
-						
+						if($check_usuario->rowCount()==1){
+						}else{
+							echo "<script>
+											Swal.fire({
+												icon: 'error',
+												title: 'Ocurrió un error inesperado',
+												text: 'Usuario o clave incorrectos'
+											});
+										</script>";
+						}
 					}
 				}
 			}
