@@ -31,6 +31,18 @@
 										});
 								</script>";
 				}else{
+					// Validando integridad de los datos de clave
+					if($this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$clave)){
+						echo "<script>
+										Swal.fire({
+											icon: 'error',
+											title: 'Ocurrió un error inesperado',
+											text: 'La CLAVE no coincide con el formato solicitado'
+										});
+									</script>";
+					}else{
+
+					}
 				}
 			}
 		}
