@@ -44,6 +44,9 @@
 						// Consultamos por el usuario en la base de datos
 						$check_usuario=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
 						if($check_usuario->rowCount()==1){
+
+							$check_usuario=$check_usuario->fetch(); // Procesamos el resultado de la consulta
+
 						}else{
 							echo "<script>
 											Swal.fire({
