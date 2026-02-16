@@ -48,6 +48,14 @@
 							$check_usuario=$check_usuario->fetch(); // Procesamos el resultado de la consulta
 
 							if($check_usuario['usuario_usuario']==$usuario && password_verify($clave,$check_usuario['usuario_clave'])){
+								// Si se valida el login con los datos del usuario, guardamos los datos en la sesión
+								$_SESSION['id']=$check_usuario['usuario_id'];
+								$_SESSION['nombre']=$check_usuario['usuario_nombre'];
+								$_SESSION['apellido']=$check_usuario['usuario_apellido'];
+								$_SESSION['usuario']=$check_usuario['usuario_usuario'];
+								$_SESSION['foto']=$check_usuario['usuario_foto'];
+
+								
 
 							}else{
 								echo "<script>
