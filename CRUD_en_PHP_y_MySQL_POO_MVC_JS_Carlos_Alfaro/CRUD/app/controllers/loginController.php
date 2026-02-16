@@ -47,6 +47,17 @@
 
 							$check_usuario=$check_usuario->fetch(); // Procesamos el resultado de la consulta
 
+							if($check_usuario['usuario_usuario']==$usuario && password_verify($clave,$check_usuario['usuario_clave'])){
+
+							}else{
+								echo "<script>
+												Swal.fire({
+													icon: 'error',
+													title: 'Ocurrió un error inesperado',
+													text: 'Usuario o clave incorrectos'
+												});
+											</script>";
+							}
 						}else{
 							echo "<script>
 											Swal.fire({
