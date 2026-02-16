@@ -55,7 +55,12 @@
 								$_SESSION['usuario']=$check_usuario['usuario_usuario'];
 								$_SESSION['foto']=$check_usuario['usuario_foto'];
 
-								
+								// redirijimos al usuario a la página de inicio de diferentes maneras, dependiendo de los headers
+								if(headers_sent()){
+									echo "<script> window.location.href='".APP_URL."dashboard/'; </script>";
+								}else{
+									header("Location: ".APP_URL."dashboard/");
+								}
 
 							}else{
 								echo "<script>
