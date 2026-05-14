@@ -40,7 +40,7 @@
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
-                    ** Usuario **
+                    ** <?php echo $_SESSION['usuario']; ?> **
                 </a>
                 <div class="navbar-dropdown is-boxed">
 
