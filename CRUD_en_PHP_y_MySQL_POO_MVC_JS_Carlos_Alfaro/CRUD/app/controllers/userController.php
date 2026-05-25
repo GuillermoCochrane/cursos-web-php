@@ -283,6 +283,11 @@
 
 				/*----------  Controlador listar usuario  ----------*/
 		public function listarUsuarioControlador($pagina,$registros,$url,$busqueda){
+			$pagina=$this->limpiarCadena($pagina);
+			$registros=$this->limpiarCadena($registros);
+			$url=$this->limpiarCadena($url);
+			$url=APP_URL.$url."/";
+			$busqueda=$this->limpiarCadena($busqueda);
 
 		}
 	}
