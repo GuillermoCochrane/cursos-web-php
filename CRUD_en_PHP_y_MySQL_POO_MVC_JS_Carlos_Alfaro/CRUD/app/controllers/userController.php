@@ -303,9 +303,15 @@
 			$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 
 			if(isset($busqueda) && $busqueda != ""){
+				/* Si hay busqueda, se realiza la consulta para mostrar los registros filtrados y paginados, y el total de los mismos */
+
+				$consulta_datos="SELECT * FROM usuario WHERE ((usuario_id != '".$_SESSION['id']."' AND usuario_id != '1') AND (usuario_nombre LIKE '%$busqueda%' OR usuario_apellido LIKE '%$busqueda%' OR usuario_email LIKE '%$busqueda%' OR usuario_usuario LIKE '%$busqueda%')) ORDER BY usuario_nombre ASC LIMIT $inicio,$registros";
+
+				$consulta_total="SELECT COUNT(usuario_id) FROM usuario WHERE ((usuario_id != '".$_SESSION['id']."' AND usuario_id != '1') AND (usuario_nombre LIKE '%$busqueda%' OR usuario_apellido LIKE '%$busqueda%' OR usuario_email LIKE '%$busqueda%' OR usuario_usuario LIKE '%$busqueda%'))";
+
 
 			}else{
-				/* Si no hay busqueda, se realiza la consulta para mostrar los registros paginados y el total de los mismos */
+				/* Si no hay busqueda, se realiza la consulta para mostrar todos los registros paginados y el total de los mismos */
 				$consulta_datos="SELECT * FROM usuario WHERE usuario_id != '".$_SESSION['id']."' AND usuario_id != '1' ORDER BY usuario_nombre ASC LIMIT $inicio,$registros";
 				$consulta_total="SELECT COUNT(usuario_id) FROM usuario WHERE usuario_id != '".$_SESSION['id']."' AND usuario_id != '1'";
 			}
