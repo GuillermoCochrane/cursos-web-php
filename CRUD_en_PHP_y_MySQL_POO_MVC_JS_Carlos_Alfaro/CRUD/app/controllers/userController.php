@@ -324,6 +324,9 @@
 			$total = $this->ejecutarConsulta($consulta_total);
 			$total = (int) $total->fetchColumn();
 
+			 /* Calculamos el total de paginas */
+			$numeroPaginas =ceil($total/$registros);
+
 		}
 	}
 
