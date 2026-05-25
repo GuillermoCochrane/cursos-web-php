@@ -283,11 +283,24 @@
 
 				/*----------  Controlador listar usuario  ----------*/
 		public function listarUsuarioControlador($pagina,$registros,$url,$busqueda){
+			/* Sanitizamos los datos recibidos */
 			$pagina=$this->limpiarCadena($pagina);
+
 			$registros=$this->limpiarCadena($registros);
+
 			$url=$this->limpiarCadena($url);
 			$url=APP_URL.$url."/";
+
 			$busqueda=$this->limpiarCadena($busqueda);
+
+			/* inicializamos la tabla */
+			$tabla="";
+
+			/* Verificamos los datos de la pagina y si no es valido, lo seteamos a 1 */
+			$pagina = (isset($pagina) && $pagina>0) ? (int) $pagina : 1;
+
+			/* Si la pagina es mayor a 1, calculamos el registro inicila del paginado, sino el inicio es 0 */
+			$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 
 		}
 	}
