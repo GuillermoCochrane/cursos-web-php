@@ -327,6 +327,28 @@
 			 /* Calculamos el total de paginas */
 			$numeroPaginas =ceil($total/$registros);
 
+			/* Concatenamos el encabezado de la tabla */
+			$tabla.='
+						<div class="table-container">
+							<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+								<thead>
+									<tr>
+										<th class="has-text-centered">#</th>
+										<th class="has-text-centered">Nombre</th>
+										<th class="has-text-centered">Usuario</th>
+										<th class="has-text-centered">Email</th>
+										<th class="has-text-centered">Creado</th>
+										<th class="has-text-centered">Actualizado</th>
+										<th class="has-text-centered" colspan="3">Opciones</th>
+									</tr>
+								</thead>
+								<tbody>
+			';
+
+			$tabla.='
+								</tbody>
+							</table>
+						</div>';
 		}
 	}
 
