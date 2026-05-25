@@ -302,6 +302,14 @@
 			/* Si la pagina es mayor a 1, calculamos el registro inicila del paginado, sino el inicio es 0 */
 			$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 
+			if(isset($busqueda) && $busqueda != ""){
+
+			}else{
+				/* Si no hay busqueda, se realiza la consulta para mostrar los registros paginados y el total de los mismos */
+				$consulta_datos="SELECT * FROM usuario WHERE usuario_id != '".$_SESSION['id']."' AND usuario_id != '1' ORDER BY usuario_nombre ASC LIMIT $inicio,$registros";
+				$consulta_total="SELECT COUNT(usuario_id) FROM usuario WHERE usuario_id != '".$_SESSION['id']."' AND usuario_id != '1'";
+			}
+
 		}
 	}
 
