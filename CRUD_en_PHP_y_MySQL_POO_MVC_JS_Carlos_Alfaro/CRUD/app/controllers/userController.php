@@ -382,8 +382,22 @@
 
 				/* Calculamos la pagina final */
 				$pag_final=$contador-1;
+			} else {
+				/* Si hay registros pero la pagina no existe, mostramos un mensaje de alerta */
+				if($total>=1){
+					$tabla.='
+						<tr class="has-text-centered" >
+							<td colspan="7">
+								<a href="'.$url.'1/" class="button is-link is-rounded is-small mt-4 mb-4">
+									Haga clic acá para recargar el listado
+								</a>
+							</td>
+						</tr>
+					';
+				}
 			}
 
+			/* Concatenamos el cierre de la tabla */
 			$tabla.='
 								</tbody>
 							</table>
