@@ -394,6 +394,15 @@
 							</td>
 						</tr>
 					';
+				} else {
+					/* Si no hay registros, mostramos un mensaje de alerta */
+					$tabla.='
+						<tr class="has-text-centered" >
+							<td colspan="7">
+								No hay registros en el sistema
+							</td>
+						</tr>
+					';
 				}
 			}
 
