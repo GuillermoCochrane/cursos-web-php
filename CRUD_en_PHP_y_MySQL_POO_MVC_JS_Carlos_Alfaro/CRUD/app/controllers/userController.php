@@ -425,6 +425,8 @@
 										<strong>total de '.$total.'</strong>
 									</p>
 				';
+
+				$tabla.=$this->paginadorTablas($pagina,$numeroPaginas,$url,7);
 			}
 
 			return $tabla;
