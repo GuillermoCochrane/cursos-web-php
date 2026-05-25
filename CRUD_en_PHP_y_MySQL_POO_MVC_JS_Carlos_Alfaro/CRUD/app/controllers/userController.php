@@ -280,6 +280,11 @@
 			}
 			return json_encode($alerta);
 		}
+
+				/*----------  Controlador listar usuario  ----------*/
+		public function listarUsuarioControlador($pagina,$registros,$url,$busqueda){
+
+		}
 	}
 
 ?>
