@@ -326,6 +326,7 @@
 
 			 /* Calculamos el total de paginas */
 			$numeroPaginas =ceil($total/$registros);
+			$pag_final=0;
 
 			/* Concatenamos el encabezado de la tabla */
 			$tabla.='
@@ -410,7 +411,23 @@
 			$tabla.='
 								</tbody>
 							</table>
-						</div>';
+						</div>
+			';
+
+			/* Paginador */
+			if($total>0 && $pagina<=$numeroPaginas){
+				$tabla.='<p class="has-text-right">
+										Mostrando usuarios 
+										<strong>'.$pag_inicio.'</strong> 
+										al 
+										<strong>'.$pag_final.'</strong> 
+										de un 
+										<strong>total de '.$total.'</strong>
+									</p>
+				';
+			}
+
+			return $tabla;
 		}
 	}
 
