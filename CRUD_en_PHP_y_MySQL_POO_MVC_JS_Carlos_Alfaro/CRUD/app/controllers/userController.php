@@ -316,6 +316,14 @@
 				$consulta_total="SELECT COUNT(usuario_id) FROM usuario WHERE usuario_id != '".$_SESSION['id']."' AND usuario_id != '1'";
 			}
 
+			/* Ejecutamos la consulta para mostrar los registros */
+			$datos = $this->ejecutarConsulta($consulta_datos);
+			$datos = $datos->fetchAll();
+
+			 /* Ejecutamos la consulta para mostrar el total de registros */
+			$total = $this->ejecutarConsulta($consulta_total);
+			$total = (int) $total->fetchColumn();
+
 		}
 	}
 
