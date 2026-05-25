@@ -345,6 +345,45 @@
 								<tbody>
 			';
 
+			/* Si hay registros y la pagina es menor o igual a la cantidad de paginas... */
+			if($total>=1 && $pagina<=$numeroPaginas){
+
+				/* inicializamos el contador y el inicio de pagina */
+				$contador=$inicio+1;
+				$pag_inicio=$inicio+1;
+
+				/* Recorremos los registros y generamos las filas de la tabla */
+				foreach($datos as $rows){
+					$tabla.='
+						<tr class="has-text-centered" >
+							<td>'.$contador.'</td>
+							<td>'.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'</td>
+							<td>'.$rows['usuario_usuario'].'</td>
+							<td>'.$rows['usuario_email'].'</td>
+							<td>'.date("d-m-Y  h:i:s A",strtotime($rows['usuario_creado'])).'</td>
+							<td>'.date("d-m-Y  h:i:s A",strtotime($rows['usuario_actualizado'])).'</td>
+							<td>
+									<a href="'.APP_URL.'userPhoto/'.$rows['usuario_id'].'/" class="button is-info is-rounded is-small">Foto</a>
+							</td>
+							<td>
+									<a href="'.APP_URL.'userUpdate/'.$rows['usuario_id'].'/" class="button is-success is-rounded is-small">Actualizar</a>
+							</td>
+							<td>
+								<form class="FormularioAjax" action="'.APP_URL.'app/ajax/usuarioAjax.php" method="POST" autocomplete="off" >
+									<input type="hidden" name="modulo_usuario" value="eliminar">
+									<input type="hidden" name="usuario_id" value="'.$rows['usuario_id'].'">
+									<button type="submit" class="button is-danger is-rounded is-small">Eliminar</button>
+								</form>
+							</td>
+						</tr>
+					';
+					$contador++;
+				}
+
+				/* Calculamos la pagina final */
+				$pag_final=$contador-1;
+			}
+
 			$tabla.='
 								</tbody>
 							</table>
