@@ -281,7 +281,7 @@
 			return json_encode($alerta);
 		}
 
-				/*----------  Controlador listar usuario  ----------*/
+		/*----------  Controlador listar usuario  ----------*/
 		public function listarUsuarioControlador($pagina,$registros,$url,$busqueda){
 			/* Sanitizamos los datos recibidos */
 			$pagina=$this->limpiarCadena($pagina);
@@ -430,6 +430,11 @@
 			}
 
 			return $tabla;
+		}
+
+		/*----------  Controlador eliminar usuario  ----------*/
+		public function eliminarUsuarioControlador(){
+			
 		}
 	}
 
