@@ -470,6 +470,11 @@
 
 			if($eliminarUsuario->rowCount()==1){
 
+				if(is_file("../views/fotos/".$datos['usuario_foto'])){
+					chmod("../views/fotos/".$datos['usuario_foto'],0777);
+					unlink("../views/fotos/".$datos['usuario_foto']);
+				}
+
 				$alerta=[
 					"tipo"=>"recargar",
 					"titulo"=>"Usuario eliminado",
@@ -478,12 +483,14 @@
 				];
 
 			}else{
+
 				$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
 					"texto"=>"No hemos podido eliminar el usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." del sistema, por favor intente nuevamente",
 					"icono"=>"error"
 				];
+
 			}
 		}
 	}
