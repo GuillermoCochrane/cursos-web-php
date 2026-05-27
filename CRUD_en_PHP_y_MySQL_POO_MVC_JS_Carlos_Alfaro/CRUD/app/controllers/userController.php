@@ -467,6 +467,24 @@
 
 			/* Eliminamos el usuario */
 			$eliminarUsuario=$this->eliminarRegistro("usuario","usuario_id",$id);
+
+			if($eliminarUsuario->rowCount()==1){
+
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Usuario eliminado",
+					"texto"=>"El usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." ha sido eliminado del sistema correctamente",
+					"icono"=>"success"
+				];
+
+			}else{
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No hemos podido eliminar el usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." del sistema, por favor intente nuevamente",
+					"icono"=>"error"
+				];
+			}
 		}
 	}
 
