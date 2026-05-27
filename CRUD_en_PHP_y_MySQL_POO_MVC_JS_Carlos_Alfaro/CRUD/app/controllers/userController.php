@@ -492,6 +492,9 @@
 				];
 
 			}
+
+			/* Devolvemos el resultado */
+			return json_encode($alerta);
 		}
 	}
 
