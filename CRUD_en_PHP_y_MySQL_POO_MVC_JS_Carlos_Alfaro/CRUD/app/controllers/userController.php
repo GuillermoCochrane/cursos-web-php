@@ -451,6 +451,20 @@
 			/* Verificamos que el usuario exista */
 			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
 
+			if($datos->rowCount()<=0){
+			/* Si no existe, notificamos al usuario */
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No hemos encontrado el usuario en el sistema",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+			}else{
+				/* Si existe lo procesamos */
+				$datos=$datos->fetch();
+			}
+
 		}
 	}
 
