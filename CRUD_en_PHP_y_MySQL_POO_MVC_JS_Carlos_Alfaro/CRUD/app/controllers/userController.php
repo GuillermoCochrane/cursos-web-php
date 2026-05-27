@@ -437,6 +437,15 @@
 		/* Sanitizamos los datos recibidos */
 			$id=$this->limpiarCadena($_POST['usuario_id']);
 
+			if($id==1){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No podemos eliminar el usuario principal del sistema",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+			}
 		}
 	}
 
