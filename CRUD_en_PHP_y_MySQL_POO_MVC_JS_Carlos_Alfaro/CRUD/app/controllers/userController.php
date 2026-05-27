@@ -434,9 +434,10 @@
 
 		/*----------  Controlador eliminar usuario  ----------*/
 		public function eliminarUsuarioControlador(){
-		/* Sanitizamos los datos recibidos */
+			/* Sanitizamos los datos recibidos */
 			$id=$this->limpiarCadena($_POST['usuario_id']);
 
+			/* Verificamos que el usuario no sea el administrador */
 			if($id==1){
 				$alerta=[
 					"tipo"=>"simple",
@@ -446,6 +447,10 @@
 				];
 				return json_encode($alerta);
 			}
+			
+			/* Verificamos que el usuario exista */
+			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
+
 		}
 	}
 
