@@ -434,7 +434,9 @@
 
 		/*----------  Controlador eliminar usuario  ----------*/
 		public function eliminarUsuarioControlador(){
-			
+		/* Sanitizamos los datos recibidos */
+			$id=$this->limpiarCadena($_POST['usuario_id']);
+
 		}
 	}
 
