@@ -465,6 +465,8 @@
 				$datos=$datos->fetch();
 			}
 
+			/* Eliminamos el usuario */
+			$eliminarUsuario=$this->eliminarRegistro("usuario","usuario_id",$id);
 		}
 	}
 
