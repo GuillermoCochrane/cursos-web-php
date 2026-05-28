@@ -8,3 +8,8 @@
     <h2 class="subtitle">Actualizar usuario</h2>
   <?php } ?>
 </div>
+<div class="container pb-6 pt-6">
+	<?php
+		include "./app/views/inc/btn_back.php";
+	?>
+</div>
