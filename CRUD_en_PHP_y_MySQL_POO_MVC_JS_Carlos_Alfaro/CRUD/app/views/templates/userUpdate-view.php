@@ -17,5 +17,9 @@
   ?>
   <?php if($datos->rowCount()==1) { $datos=$datos->fetch(); ?>
 
-  <?php } else { include "./app/views/inc/error_alert.php";} ?>
+    <h2 class="title has-text-centered"><?php echo $datos['usuario_nombre']." ".$datos['usuario_apellido']; ?></h2>
+
+    <p class="has-text-centered pb-6"><?php echo "<strong>Usuario creado:</strong> ".date("d-m-Y  h:i:s A",strtotime($datos['usuario_creado']))." &nbsp; <strong>Usuario actualizado:</strong> ".date("d-m-Y  h:i:s A",strtotime($datos['usuario_actualizado'])); ?></p>
+
+  <?php } else { include "./app/views/inc/error_alert.php";} ?> 
 </div>
