@@ -11,5 +11,13 @@
 <div class="container pb-6 pt-6">
 	<?php
 		include "./app/views/inc/btn_back.php";
-	?>
+
+    // Seleccionar datos del usuario
+		$datos=$insLogin->seleccionarDatos("Unico","usuario","usuario_id",$id);
+  ?>
+  <?php if($datos->rowCount()==1) { $datos=$datos->fetch(); ?>
+
+  <?php } else { ?>
+
+  <?php } ?>
 </div>
