@@ -17,7 +17,5 @@
   ?>
   <?php if($datos->rowCount()==1) { $datos=$datos->fetch(); ?>
 
-  <?php } else { ?>
-
-  <?php } ?>
+  <?php } else { include "./app/views/inc/error_alert.php";} ?>
 </div>
