@@ -776,6 +776,13 @@
 			#Con los Datos validados, actualizamos la entrada de la base de datos
 			if($this->actualizarDatos("usuario",$usuario_datos_up,$condicion)){
 
+				# Si el usuario actualizado es el mismo que esta logueado, actualizamos sus datos de sesión
+				if($id==$_SESSION['id']){
+					$_SESSION['nombre']=$nombre;
+					$_SESSION['apellido']=$apellido;
+					$_SESSION['usuario']=$usuario;
+				}
+
 				$alerta=[
 					"tipo"=>"recargar",
 					"titulo"=>"Usuario actualizado",
