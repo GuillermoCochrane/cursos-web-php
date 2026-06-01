@@ -548,6 +548,18 @@
 			exit();
 		}
 
+		# Validamos los datos de admin_clave
+		if($this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$admin_clave)){
+			$alerta=[
+				"tipo"=>"simple",
+				"titulo"=>"Ocurrió un error inesperado",
+				"texto"=>"Su CLAVE no coincide con el formato solicitado",
+				"icono"=>"error"
+			];
+			return json_encode($alerta);
+			exit();
+		}
+
 
 		}
 	}
