@@ -731,9 +731,43 @@
 					exit();
 				}
 			}
-		}
 
-		
+			# Array de datos a actualizar
+			$usuario_datos_up=[
+				[
+					"campo_nombre"=>"usuario_nombre",
+					"campo_marcador"=>":Nombre",
+					"campo_valor"=>$nombre
+				],
+				[
+					"campo_nombre"=>"usuario_apellido",
+					"campo_marcador"=>":Apellido",
+					"campo_valor"=>$apellido
+				],
+				[
+					"campo_nombre"=>"usuario_usuario",
+					"campo_marcador"=>":Usuario",
+					"campo_valor"=>$usuario
+				],
+				[
+					"campo_nombre"=>"usuario_email",
+					"campo_marcador"=>":Email",
+					"campo_valor"=>$email
+				],
+				[
+					"campo_nombre"=>"usuario_clave",
+					"campo_marcador"=>":Clave",
+					"campo_valor"=>$clave
+				],
+				[
+					"campo_nombre"=>"usuario_actualizado",
+					"campo_marcador"=>":Actualizado",
+					"campo_valor"=>date("Y-m-d H:i:s")
+				]
+			];
+
+			
+		}
 	}
 
 ?>
