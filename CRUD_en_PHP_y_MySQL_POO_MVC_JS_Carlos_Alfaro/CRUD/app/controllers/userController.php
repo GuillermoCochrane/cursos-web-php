@@ -500,8 +500,13 @@
 		/*----------  Controlador actualizar usuario  ----------*/
 		public function actualizarUsuarioControlador(){
 
-			/* Sanitizamos los datos recibidos */
+			# Sanitizamos los datos recibidos
 			$id=$this->limpiarCadena($_POST['usuario_id']);
+
+			# Alamacenamos la consulta
+			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
+
+
 		}
 	}
 
