@@ -682,6 +682,40 @@
 				}
 			}
 
+			# Validamos passwords (no obligatorios)
+			if($clave1!="" || $clave2!=""){
+				if($this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$clave1) || $this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$clave2)){
+
+					$alerta=[
+						"tipo"=>"simple",
+						"titulo"=>"Ocurrió un error inesperado",
+						"texto"=>"Las CLAVES no coinciden con el formato solicitado",
+						"icono"=>"error"
+					];
+					
+					return json_encode($alerta);
+					exit();
+				
+				}else{
+					if($clave1!=$clave2){
+
+						$alerta=[
+							"tipo"=>"simple",
+							"titulo"=>"Ocurrió un error inesperado",
+							"texto"=>"Las nuevas CLAVES que acaba de ingresar no coinciden, por favor verifique e intente nuevamente",
+							"icono"=>"error"
+						];
+
+						return json_encode($alerta);
+						exit();
+
+					}else{
+						$clave=password_hash($clave1,PASSWORD_BCRYPT,["cost"=>10]);
+					}
+				}
+			}else{
+				$clave=$datos['usuario_clave'];
+			}
 
 		}
 
