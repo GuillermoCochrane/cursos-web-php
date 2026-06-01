@@ -496,6 +496,11 @@
 			/* Devolvemos el resultado */
 			return json_encode($alerta);
 		}
+
+		/*----------  Controlador actualizar usuario  ----------*/
+		public function actualizarUsuarioControlador(){
+			
+		}
 	}
 
 ?>
