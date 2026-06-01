@@ -772,6 +772,29 @@
 				"condicion_marcador"=>":ID",
 				"condicion_valor"=>$id
 			];
+
+			#Con los Datos validados, actualizamos la entrada de la base de datos
+			if($this->actualizarDatos("usuario",$usuario_datos_up,$condicion)){
+
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Usuario actualizado",
+					"texto"=>"Los datos del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." se actualizaron correctamente",
+					"icono"=>"success"
+				];
+
+			}else{
+
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No hemos podido actualizar los datos del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido'].", por favor intente nuevamente",
+					"icono"=>"error"
+				];
+
+			}
+
+			return json_encode($alerta);
 		}
 	}
 
