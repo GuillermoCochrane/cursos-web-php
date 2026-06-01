@@ -766,7 +766,12 @@
 				]
 			];
 
-			
+			# Condiciones para actualizar datos en la base de datos
+			$condicion=[
+				"condicion_campo"=>"usuario_id",
+				"condicion_marcador"=>":ID",
+				"condicion_valor"=>$id
+			];
 		}
 	}
 
