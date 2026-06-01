@@ -499,7 +499,9 @@
 
 		/*----------  Controlador actualizar usuario  ----------*/
 		public function actualizarUsuarioControlador(){
-			
+
+			/* Sanitizamos los datos recibidos */
+			$id=$this->limpiarCadena($_POST['usuario_id']);
 		}
 	}
 
