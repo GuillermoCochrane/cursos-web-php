@@ -516,7 +516,7 @@
 				return json_encode($alerta);
 				exit();
 			}else{
-			
+				$datos=$datos->fetch();
 			}
 
 		}
