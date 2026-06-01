@@ -523,6 +523,18 @@
 			# Almacenamos las credenciales de quien esta actualizando el usuario
 			$admin_usuario=$this->limpiarCadena($_POST['administrador_usuario']);
 			$admin_clave=$this->limpiarCadena($_POST['administrador_clave']);
+
+			# Verificamos las credenciales
+			if($admin_usuario=="" || $admin_clave==""){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No ha llenado todos los campos que son obligatorios, que corresponden a su USUARIO y CLAVE",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
