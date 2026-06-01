@@ -565,6 +565,19 @@
 			
 			if($check_admin->rowCount()==1){
 				$check_admin=$check_admin->fetch();
+
+				# Si existe el usuario editor, verificamos la contraseña
+				if($check_admin['usuario_usuario']!=$admin_usuario || !password_verify($admin_clave,$check_admin['usuario_clave'])){
+					$alerta=[
+						"tipo"=>"simple",
+						"titulo"=>"Ocurrió un error inesperado",
+						"texto"=>"USUARIO o CLAVE de administrador incorrectos",
+						"icono"=>"error"
+					];
+					return json_encode($alerta);
+					exit();
+				}
+
 			}else{
 				$alerta=[
 					"tipo"=>"simple",
