@@ -506,6 +506,7 @@
 			# Alamacenamos la consulta
 			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
 
+			# Verificamos que el usuario exista
 			if($datos->rowCount()<=0){
 				$alerta=[
 					"tipo"=>"simple",
@@ -519,6 +520,9 @@
 				$datos=$datos->fetch();
 			}
 
+			# Almacenamos las credenciales de quien esta actualizando el usuario
+			$admin_usuario=$this->limpiarCadena($_POST['administrador_usuario']);
+			$admin_clave=$this->limpiarCadena($_POST['administrador_clave']);
 		}
 	}
 
