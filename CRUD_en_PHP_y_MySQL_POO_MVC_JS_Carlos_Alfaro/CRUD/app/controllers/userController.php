@@ -536,31 +536,45 @@
 				exit();
 			}
 
-		# Validamos los datos de admin_usuario
-		if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$admin_usuario)){
-			$alerta=[
-				"tipo"=>"simple",
-				"titulo"=>"Ocurrió un error inesperado",
-				"texto"=>"Su USUARIO no coincide con el formato solicitado",
-				"icono"=>"error"
-			];
-			return json_encode($alerta);
-			exit();
-		}
+			# Validamos los datos de admin_usuario
+			if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$admin_usuario)){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"Su USUARIO no coincide con el formato solicitado",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 
-		# Validamos los datos de admin_clave
-		if($this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$admin_clave)){
-			$alerta=[
-				"tipo"=>"simple",
-				"titulo"=>"Ocurrió un error inesperado",
-				"texto"=>"Su CLAVE no coincide con el formato solicitado",
-				"icono"=>"error"
-			];
-			return json_encode($alerta);
-			exit();
-		}
+			# Validamos los datos de admin_clave
+			if($this->verificarDatos("[a-zA-Z0-9$@.-]{7,100}",$admin_clave)){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"Su CLAVE no coincide con el formato solicitado",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 
-
+			# Verificamos que el usuario editor exista
+			$check_admin=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_usuario='$admin_usuario' AND usuario_id='".$_SESSION['id']."'");
+			
+			if($check_admin->rowCount()==1){
+				$check_admin=$check_admin->fetch();
+			}else{
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"USUARIO o CLAVE de administrador incorrectos",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
