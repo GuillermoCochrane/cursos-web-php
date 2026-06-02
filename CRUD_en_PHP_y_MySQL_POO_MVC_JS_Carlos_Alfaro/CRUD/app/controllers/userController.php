@@ -852,6 +852,8 @@
 				} 
 			}
 
+			chmod($img_dir,0777);
+
 			# Validamos el formato del archivo recibido
 			if(mime_content_type($_FILES['usuario_foto']['tmp_name'])!="image/jpeg" && mime_content_type($_FILES['usuario_foto']['tmp_name'])!="image/png"){
 				$alerta=[
@@ -883,6 +885,16 @@
 			}else{
 				$foto=str_ireplace(" ","_",$datos['usuario_nombre']);
 				$foto=$foto."_".rand(0,100);
+			}
+
+			# Definimos la extensión del archivo a guardar
+			switch(mime_content_type($_FILES['usuario_foto']['tmp_name'])){
+				case 'image/jpeg':
+						$foto=$foto.".jpg";
+				break;
+				case 'image/png':
+						$foto=$foto.".png";
+				break;
 			}
 		}
 	}
