@@ -929,6 +929,13 @@
 				]
 			];
 
+			# Seteamos condiciones para actualizar datos de la imagen en la base de datos
+			$condicion=[
+				"condicion_campo"=>"usuario_id",
+				"condicion_marcador"=>":ID",
+				"condicion_valor"=>$id
+			];
+
 		}
 	}
 
