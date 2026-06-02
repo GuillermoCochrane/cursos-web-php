@@ -908,6 +908,14 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			# Eliminamos la imagen anterior, si es diferente a la nueva 
+			if(is_file($img_dir.$datos['usuario_foto']) && $datos['usuario_foto']!=$foto){
+				chmod($img_dir.$datos['usuario_foto'], 0777);
+				unlink($img_dir.$datos['usuario_foto']);
+			}
+
+
 		}
 	}
 
