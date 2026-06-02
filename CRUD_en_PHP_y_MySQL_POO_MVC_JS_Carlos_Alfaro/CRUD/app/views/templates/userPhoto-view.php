@@ -56,6 +56,32 @@
     </div>
   </div>
 
+  
+		<div class="column">
+			<form class="mb-6 has-text-centered FormularioAjax" action="<?php echo APP_URL; ?>app/ajax/usuarioAjax.php" method="POST" enctype="multipart/form-data" autocomplete="off" >
+
+				<input type="hidden" name="modulo_usuario" value="actualizarFoto">
+				<input type="hidden" name="usuario_id" value="<?php echo $datos['usuario_id']; ?>">
+				
+				<label>Foto o imagen del usuario</label><br>
+
+				<div class="file has-name is-boxed is-justify-content-center mb-6">
+            <label class="file-label">
+						<input class="file-input" type="file" name="usuario_foto" accept=".jpg, .png, .jpeg" >
+						<span class="file-cta">
+							<span class="file-label">
+								Seleccione una foto
+							</span>
+						</span>
+						<span class="file-name">JPG, JPEG, PNG. (MAX 5MB)</span>
+					</label>
+				</div>
+				<p class="has-text-centered">
+					<button type="submit" class="button is-success is-rounded">Actualizar foto</button>
+				</p>
+			</form>
+		</div>
+
   <?php
     /* Si el usuario no existe, notificar error */
     }else {  
