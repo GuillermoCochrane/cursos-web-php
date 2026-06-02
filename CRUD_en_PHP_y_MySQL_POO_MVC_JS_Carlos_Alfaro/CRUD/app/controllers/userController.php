@@ -808,7 +808,7 @@
 		public function actualizarFotoUsuarioControlador(){
 			$id=$this->limpiarCadena($_POST['usuario_id']);
 
-			# Verificando usuario #
+			# Validamos datos del usuario #
 			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
 			if($datos->rowCount()<=0){
 				$alerta=[
@@ -821,6 +821,18 @@
 				exit();
 			}else{
 				$datos=$datos->fetch();
+			}
+
+			# Validamos Datos recibidos de la imagen 
+			if($_FILES['usuario_foto']['name']=="" && $_FILES['usuario_foto']['size']<=0){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No ha seleccionado una foto para el usuario",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
 			}
 		}
 	}
