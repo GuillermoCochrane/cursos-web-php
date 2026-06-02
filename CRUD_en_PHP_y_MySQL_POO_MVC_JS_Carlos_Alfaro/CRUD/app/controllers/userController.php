@@ -863,6 +863,18 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			# Validamos el tamaño del archivo recibido
+			if(($_FILES['usuario_foto']['size']/1024)>5120){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"La imagen que ha seleccionado supera el peso permitido",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
