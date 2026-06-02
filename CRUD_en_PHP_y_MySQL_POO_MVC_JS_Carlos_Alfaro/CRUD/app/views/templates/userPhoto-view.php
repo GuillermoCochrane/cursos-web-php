@@ -31,21 +31,27 @@
       <!-- Comprobamos si tiene imagen de perfil -->
       <?php if(is_file("./app/views/fotos/".$datos['usuario_foto'])){ ?>
 
-      <!-- Si tiene imagen de perfil, la mostramos junto con un boton para eliminarla -->
-      <figure class="image mb-6">
-        <img class="is-rounded" src="<?php echo APP_URL; ?>app/views/fotos/<?php echo $datos['usuario_foto']; ?>">
-			</figure>
-			
-			<form class="FormularioAjax" action="<?php echo APP_URL; ?>app/ajax/usuarioAjax.php" method="POST" autocomplete="off" >
+        <!-- Si tiene imagen de perfil, la mostramos junto con un boton para eliminarla -->
+        <figure class="image mb-6">
+          <img class="is-rounded" src="<?php echo APP_URL; ?>app/views/fotos/<?php echo $datos['usuario_foto']; ?>">
+        </figure>
+        
+        <form class="FormularioAjax" action="<?php echo APP_URL; ?>app/ajax/usuarioAjax.php" method="POST" autocomplete="off" >
 
-				<input type="hidden" name="modulo_usuario" value="eliminarFoto">
-				<input type="hidden" name="usuario_id" value="<?php echo $datos['usuario_id']; ?>">
+          <input type="hidden" name="modulo_usuario" value="eliminarFoto">
+          <input type="hidden" name="usuario_id" value="<?php echo $datos['usuario_id']; ?>">
 
-				<p class="has-text-centered">
-					<button type="submit" class="button is-danger is-rounded">Eliminar foto</button>
-				</p>
-			</form>
+          <p class="has-text-centered">
+            <button type="submit" class="button is-danger is-rounded">Eliminar foto</button>
+          </p>
+        </form>
 
+      <?php } else { ?>
+
+      <!-- Si no tiene imagen de perfil, mostramos una imagen por defecto -->
+        <figure class="image mb-6">
+          <img class="is-rounded" src="<?php echo APP_URL; ?>app/views/fotos/default.png">
+        </figure>
       <?php } ?>
     </div>
   </div>
