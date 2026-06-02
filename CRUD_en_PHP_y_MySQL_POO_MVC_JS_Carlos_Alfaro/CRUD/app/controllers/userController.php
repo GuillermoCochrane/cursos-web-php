@@ -915,6 +915,19 @@
 				unlink($img_dir.$datos['usuario_foto']);
 			}
 
+			# Almacenamos los datos de la imagen a actualizar en una variable
+			$usuario_datos_up=[
+				[
+					"campo_nombre"=>"usuario_foto",
+					"campo_marcador"=>":Foto",
+					"campo_valor"=>$foto
+				],
+				[
+					"campo_nombre"=>"usuario_actualizado",
+					"campo_marcador"=>":Actualizado",
+					"campo_valor"=>date("Y-m-d H:i:s")
+				]
+			];
 
 		}
 	}
