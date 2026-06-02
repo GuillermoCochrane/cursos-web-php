@@ -21,6 +21,9 @@
 			echo $insUsuario->actualizarUsuarioControlador();
 		}
 
+		if($_POST['modulo_usuario']=="actualizarFoto"){
+			echo $insUsuario->actualizarFotoUsuarioControlador();
+		}
 
 	}else{
 		session_destroy();
