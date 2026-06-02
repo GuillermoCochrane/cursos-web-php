@@ -808,6 +808,20 @@
 		public function actualizarFotoUsuarioControlador(){
 			$id=$this->limpiarCadena($_POST['usuario_id']);
 
+			# Verificando usuario #
+			$datos=$this->ejecutarConsulta("SELECT * FROM usuario WHERE usuario_id='$id'");
+			if($datos->rowCount()<=0){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No hemos encontrado el usuario en el sistema",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}else{
+				$datos=$datos->fetch();
+			}
 		}
 	}
 
