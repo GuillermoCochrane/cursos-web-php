@@ -896,6 +896,18 @@
 						$foto=$foto.".png";
 				break;
 			}
+
+			# Almacenamos el archivo en el directorio, y validamos el proceso
+			if(!move_uploaded_file($_FILES['usuario_foto']['tmp_name'],$img_dir.$foto)){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No podemos subir la imagen al sistema en este momento",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
