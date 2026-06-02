@@ -834,6 +834,23 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			# Directorio de imagenes
+			$img_dir="../views/fotos/";
+
+			# Creamos directorio si no existe  y validamos su creación
+			if(!file_exists($img_dir)){
+				if(!mkdir($img_dir,0777)){
+					$alerta=[
+						"tipo"=>"simple",
+						"titulo"=>"Ocurrió un error inesperado",
+						"texto"=>"Error al crear el directorio",
+						"icono"=>"error"
+					];
+					return json_encode($alerta);
+					exit();
+				} 
+			}
 		}
 	}
 
