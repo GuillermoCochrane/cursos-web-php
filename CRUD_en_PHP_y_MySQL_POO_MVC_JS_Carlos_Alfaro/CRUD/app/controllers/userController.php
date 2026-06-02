@@ -803,6 +803,12 @@
 
 			return json_encode($alerta);
 		}
+
+		/*----------  Controlador actualizar imagen de usuario  ----------*/
+		public function actualizarFotoUsuarioControlador(){
+			$id=$this->limpiarCadena($_POST['usuario_id']);
+
+		}
 	}
 
 ?>
