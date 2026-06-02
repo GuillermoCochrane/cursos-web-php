@@ -875,6 +875,15 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			# Definimos el nombre del archivo a guardar
+			if($datos['usuario_foto']!=""){
+				$foto=explode(".", $datos['usuario_foto']);
+				$foto=$foto[0];
+			}else{
+				$foto=str_ireplace(" ","_",$datos['usuario_nombre']);
+				$foto=$foto."_".rand(0,100);
+			}
 		}
 	}
 
