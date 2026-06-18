@@ -1014,6 +1014,21 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			/* Seteamos los datos de la foto a eliminar */
+			$usuario_datos_up=[
+				[
+					"campo_nombre"=>"usuario_foto",
+					"campo_marcador"=>":Foto",
+					"campo_valor"=>""
+				],
+				[
+					"campo_nombre"=>"usuario_actualizado",
+					"campo_marcador"=>":Actualizado",
+					"campo_valor"=>date("Y-m-d H:i:s")
+				]
+			];
+
 		}
 
 	}
