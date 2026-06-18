@@ -989,7 +989,21 @@
 
 			/* Verificamos que exista la foto a eliminar  */
 			if(is_file($img_dir.$datos['usuario_foto'])){
+				/* Damos permisos de escritura al archivo */
+				chmod($img_dir.$datos['usuario_foto'],0777);
 
+				/* Eliminamos el archivo. y mostramos un mensaje de alerta si falla */
+				if(!unlink($img_dir.$datos['usuario_foto'])){
+					$alerta=[
+						"tipo"=>"simple",
+						"titulo"=>"Ocurrió un error inesperado",
+						"texto"=>"Error al intentar eliminar la foto del usuario, por favor intente nuevamente",
+						"icono"=>"error"
+					];
+
+					return json_encode($alerta);
+					exit();
+				}
 			}else{
 				$alerta=[
 					"tipo"=>"simple",
