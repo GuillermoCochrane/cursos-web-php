@@ -961,6 +961,9 @@
 			return json_encode($alerta);
 		}
 
+		/*----------  Controlador eliminar foto usuario  ----------*/
+		public function eliminarFotoUsuarioControlador(){}
+
 	}
 
 ?>
