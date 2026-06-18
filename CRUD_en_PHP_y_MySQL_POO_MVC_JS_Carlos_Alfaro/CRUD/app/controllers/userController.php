@@ -982,6 +982,12 @@
 			}else{
 				$datos=$datos->fetch();
 			}
+
+			/* Habilitamos permisos de escritura en el directorio */
+			$img_dir="../views/fotos/";
+			chmod($img_dir,0777);
+
+
 		}
 
 	}
