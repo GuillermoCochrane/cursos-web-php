@@ -962,7 +962,11 @@
 		}
 
 		/*----------  Controlador eliminar foto usuario  ----------*/
-		public function eliminarFotoUsuarioControlador(){}
+		public function eliminarFotoUsuarioControlador(){
+
+			/* Sanitizamos los datos recibidos */
+			$id=$this->limpiarCadena($_POST['usuario_id']);
+		}
 
 	}
 
