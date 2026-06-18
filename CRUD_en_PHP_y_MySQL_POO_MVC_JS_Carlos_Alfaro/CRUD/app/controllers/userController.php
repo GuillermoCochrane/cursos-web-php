@@ -1044,7 +1044,13 @@
 					$_SESSION['foto']="";
 				}
 
-
+				/* Notificamos la correcta eliminacion de la foto */
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Foto eliminada",
+					"texto"=>"La foto del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." se elimino correctamente",
+					"icono"=>"success"
+				];
 
 			}else{
 
