@@ -987,7 +987,19 @@
 			$img_dir="../views/fotos/";
 			chmod($img_dir,0777);
 
+			/* Verificamos que exista la foto a eliminar  */
+			if(is_file($img_dir.$datos['usuario_foto'])){
 
+			}else{
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No hemos encontrado la foto del usuario en el sistema",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 		}
 
 	}
