@@ -1035,8 +1035,20 @@
 				"condicion_marcador"=>":ID",
 				"condicion_valor"=>$id
 			];
-		}
 
+			/* Actualizamos los datos, eliminiando la foto en la base de datos */
+			if($this->actualizarDatos("usuario",$usuario_datos_up,$condicion)){
+
+			}else{
+
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Foto eliminada",
+					"texto"=>"No hemos podido actualizar algunos datos del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido'].", sin embargo la foto ha sido eliminada correctamente",
+					"icono"=>"warning"
+				];
+			}
+		}
 	}
 
 ?>
