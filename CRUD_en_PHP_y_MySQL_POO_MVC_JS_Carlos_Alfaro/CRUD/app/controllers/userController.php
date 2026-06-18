@@ -1061,6 +1061,9 @@
 					"icono"=>"warning"
 				];
 			}
+
+			/* Devolvemos la notificación correspondiente */
+			return json_encode($alerta);
 		}
 	}
 
