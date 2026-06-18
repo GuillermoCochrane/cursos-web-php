@@ -936,7 +936,31 @@
 				"condicion_valor"=>$id
 			];
 
+			if($this->actualizarDatos("usuario",$usuario_datos_up,$condicion)){
+
+				if($id==$_SESSION['id']){
+					$_SESSION['foto']=$foto;
+				}
+
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Foto actualizada",
+					"texto"=>"La foto del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." se actualizo correctamente",
+					"icono"=>"success"
+				];
+			}else{
+
+				$alerta=[
+					"tipo"=>"recargar",
+					"titulo"=>"Foto actualizada",
+					"texto"=>"No hemos podido actualizar algunos datos del usuario ".$datos['usuario_nombre']." ".$datos['usuario_apellido']." , sin embargo la foto ha sido actualizada",
+					"icono"=>"warning"
+				];
+			}
+
+			return json_encode($alerta);
 		}
+
 	}
 
 ?>
