@@ -1039,6 +1039,13 @@
 			/* Actualizamos los datos, eliminiando la foto en la base de datos */
 			if($this->actualizarDatos("usuario",$usuario_datos_up,$condicion)){
 
+				/* Si la foto es la del usuario actual, actualizamos con la imagen por defecto */
+				if($id==$_SESSION['id']){
+					$_SESSION['foto']="";
+				}
+
+
+
 			}else{
 
 				$alerta=[
