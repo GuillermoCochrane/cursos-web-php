@@ -23,6 +23,9 @@
 		/*----------  Metodo para iniciar busqueda  ----------*/
 		public function iniciarBuscadorControlador(){
 			
+			# Sanrizamos los datos recibidos por POST
+			$url=$this->limpiarCadena($_POST['modulo_url']);
+			$texto=$this->limpiarCadena($_POST['txt_buscador']);
 		}
 	}
 
