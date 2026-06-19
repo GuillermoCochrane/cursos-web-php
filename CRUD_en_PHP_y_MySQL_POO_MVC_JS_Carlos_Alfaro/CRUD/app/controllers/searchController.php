@@ -65,6 +65,12 @@
 
 			# Guardamos el contenido de la busqueda en la sesion
 			$_SESSION[$url]=$texto;
+
+			# Generamos un modal de redireccionamiento a la pagina de busquedas, con la sesion con el contenido de la busqueda
+			$alerta=[
+				"tipo"=>"redireccionar",
+				"url"=>APP_URL.$url."/"
+			];
 		}
 	}
 
