@@ -39,6 +39,19 @@
 				exit();
 			}
 
+			# Validamos que la busqueda tenga contenido
+			if($texto==""){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"Introduce un termino de busqueda",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
+
+			
 		}
 	}
 
