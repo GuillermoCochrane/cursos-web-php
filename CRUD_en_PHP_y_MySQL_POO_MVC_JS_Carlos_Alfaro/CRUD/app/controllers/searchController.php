@@ -71,6 +71,10 @@
 				"tipo"=>"redireccionar",
 				"url"=>APP_URL.$url."/"
 			];
+
+			# Devolvemos el modal correspondiente
+			return json_encode($alerta);
+			exit();
 		}
 	}
 
