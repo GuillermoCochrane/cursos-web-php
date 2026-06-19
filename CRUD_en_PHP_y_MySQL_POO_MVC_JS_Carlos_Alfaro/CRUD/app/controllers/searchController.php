@@ -63,7 +63,8 @@
 				exit();
 			}
 
-
+			# Guardamos el contenido de la busqueda en la sesion
+			$_SESSION[$url]=$texto;
 		}
 	}
 
