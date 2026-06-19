@@ -20,6 +20,10 @@
 			}
 		}
 
+		/*----------  Metodo para iniciar busqueda  ----------*/
+		public function iniciarBuscadorControlador(){
+			
+		}
 	}
 
 ?>
