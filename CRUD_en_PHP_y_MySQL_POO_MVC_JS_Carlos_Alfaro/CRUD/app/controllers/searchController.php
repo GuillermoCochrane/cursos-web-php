@@ -104,6 +104,8 @@
 				"tipo"=>"redireccionar",
 				"url"=>APP_URL.$url."/"
 			];
+
+			return json_encode($alerta);
 		}
 	}
 
