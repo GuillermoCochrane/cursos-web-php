@@ -10,6 +10,11 @@
 
 		$insBuscador = new searchController();
 
+		/* Ruta para procesar la busqueda */
+		if($_POST['modulo_buscador']=="buscar"){
+			echo $insBuscador->iniciarBuscadorControlador();
+		}
+
 	}else{
 		session_destroy();
 		header("Location: ".APP_URL."login/");
