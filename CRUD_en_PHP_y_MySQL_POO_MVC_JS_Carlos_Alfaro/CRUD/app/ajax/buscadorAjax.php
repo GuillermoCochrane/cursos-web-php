@@ -15,6 +15,11 @@
 			echo $insBuscador->iniciarBuscadorControlador();
 		}
 
+		/* Ruta para eliminar la busqueda */
+		if($_POST['modulo_buscador']=="eliminar"){
+			echo $insBuscador->eliminarBuscadorControlador();
+		}
+
 	}else{
 		session_destroy();
 		header("Location: ".APP_URL."login/");
