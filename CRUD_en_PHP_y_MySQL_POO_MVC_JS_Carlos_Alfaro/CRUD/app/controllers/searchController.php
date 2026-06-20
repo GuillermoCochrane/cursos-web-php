@@ -76,6 +76,11 @@
 			return json_encode($alerta);
 			exit();
 		}
+
+		/*----------  Metodo para eliminar busqueda  ----------*/
+		public function eliminarBuscadorControlador(){
+
+		}
 	}
 
 ?>
