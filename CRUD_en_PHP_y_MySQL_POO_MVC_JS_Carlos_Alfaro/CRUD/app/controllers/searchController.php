@@ -95,6 +95,9 @@
 				return json_encode($alerta);
 				exit();
 			}
+
+			# Eliminamos la sesion del modulo de busqueda
+			unset($_SESSION[$url]);
 		}
 	}
 
