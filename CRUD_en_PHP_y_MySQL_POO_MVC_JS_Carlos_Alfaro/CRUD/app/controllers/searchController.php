@@ -80,9 +80,21 @@
 		/*----------  Metodo para eliminar busqueda  ----------*/
 		public function eliminarBuscadorControlador(){
 
-		# Sanitizamos los datos recibidos por POST
-		$url=$this->limpiarCadena($_POST['modulo_url']);
+			# Sanitizamos los datos recibidos por POST
+			$url=$this->limpiarCadena($_POST['modulo_url']);
 
+			# Validamos el modulo de busqueda
+			if($this->modulosBusquedaControlador($url)){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"No podemos procesar la petición en este momento",
+					"icono"=>"error"
+				];
+
+				return json_encode($alerta);
+				exit();
+			}
 		}
 	}
 
