@@ -98,6 +98,12 @@
 
 			# Eliminamos la sesion del modulo de busqueda
 			unset($_SESSION[$url]);
+
+			# Generamos un modal de redireccionamiento a la pagina de busquedas, sin contenido
+			$alerta=[
+				"tipo"=>"redireccionar",
+				"url"=>APP_URL.$url."/"
+			];
 		}
 	}
 
