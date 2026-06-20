@@ -23,7 +23,7 @@
 		/*----------  Metodo para iniciar busqueda  ----------*/
 		public function iniciarBuscadorControlador(){
 			
-			# Sanrizamos los datos recibidos por POST
+			# Sanitizamos los datos recibidos por POST
 			$url=$this->limpiarCadena($_POST['modulo_url']);
 			$texto=$this->limpiarCadena($_POST['txt_buscador']);
 
@@ -79,6 +79,9 @@
 
 		/*----------  Metodo para eliminar busqueda  ----------*/
 		public function eliminarBuscadorControlador(){
+
+		# Sanitizamos los datos recibidos por POST
+		$url=$this->limpiarCadena($_POST['modulo_url']);
 
 		}
 	}
