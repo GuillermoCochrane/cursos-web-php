@@ -2,6 +2,10 @@
 
 Este módulo contiene la implementación completa de un Sistema de Gestión de Usuarios empresarial basado en el curso de Carlos Alfaro. El proyecto original fue **reestructurado por completo** para adaptarlo a estándares modernos de desarrollo (estilo Express/React), optimizando la separación de responsabilidades y la organización de assets estáticos.
 
+## 🔗 Recursos Originales
+* **Playlist Youtube:** [Ver en YouTube: Como HACER un CRUD con PHP - MySQL - POO - PDO - MVC - AJAX desde CERO](https://www.youtube.com/playlist?list=PLH_tVOsiVGzl-l_yDiedZyOKZSUayupki)
+* **Repositorio de Referencia:** [Carlos007007/CRUD](https://github.com/Carlos007007/CRUD)
+
 ---
 
 ## 📐 Reestructuración y Arquitectura del Proyecto
