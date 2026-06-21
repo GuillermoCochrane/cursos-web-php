@@ -1,9 +1,14 @@
-# 🎓 Sprint 1: Fundamentos de PHP Nativo y Gestión de Estado
+# Fundamentos de PHP Nativo y Gestión de Estado
 > **Material de Referencia:** Curso PHP Básico - Jon Mircha (Ciclo 2012)  
 > **Duración del Sprint:** 15 días  
 > **Enfoque de Implementación:** Pragmático (KISS) con interfaz estilizada mediante **Pico.css (Classless)** para aislar la lógica del backend del HTML crudo.
 
 Este módulo representa el "kilómetro cero" del desarrollo en PHP. El objetivo principal fue domar el comportamiento nativo del lenguaje, comprender el flujo de las peticiones HTTP (GET/POST), la manipulación de archivos en el disco del servidor y los mecanismos primitivos de persistencia de estado (Cookies y Sesiones) antes de saltar a arquitecturas modernas o middlewares automatizados.
+
+---
+
+## 🔗 Recursos Originales
+* **Playlist Youtube:** [Curso PHP Básico](https://www.youtube.com/playlist?list=PL469D93BF3AE1F84F)
 
 ---
 
